@@ -1,0 +1,14 @@
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\obj\Debug\DTWScaleMeter.csprojAssemblyReference.cache
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\obj\Debug\REVIRE.REVIRE.resources
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\obj\Debug\REVIRE.Properties.Resources.resources
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\obj\Debug\DTWScaleMeter.csproj.GenerateResource.cache
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\obj\Debug\DTWScaleMeter.csproj.CoreCompileInputs.cache
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\bin\Debug\REVIRE.exe.config
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\bin\Debug\REVIRE.exe
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\bin\Debug\REVIRE.pdb
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\bin\Debug\REVIREPanels.dll
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\bin\Debug\REVIREPanels.pdb
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\bin\Debug\REVIREPanels.dll.config
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\obj\Debug\DTWScaleMeter.csproj.CopyComplete
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\obj\Debug\REVIRE.exe
+E:\repositorios\Rubidium_repositorios\DTWScaleMeter\DTWScaleMeter\obj\Debug\REVIRE.pdb

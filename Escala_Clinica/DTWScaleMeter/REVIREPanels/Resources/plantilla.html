@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Web Page Design </title>
+    <style>
+        table.border {
+            border-collapse: collapse;
+        }
+
+            table.border th {
+                padding: 5px;
+                border: 1px solid green;
+            }
+
+            table.border td {
+                padding: 5px;
+                border: 1px solid green;
+            }
+
+        table.datauser {
+            border-collapse: collapse;
+        }
+
+
+            table.datauser td {
+                height: 35px;
+                padding: 10px;
+            }
+    </style>
+</head>
+<body>
+    <!-- Seccion log e titulo de informe -->
+    <div>
+        <table style="width:100%">
+            <tr>
+                <td style="width:92%"></td>
+                <td style="width:8%" height="50px">@LOGOHELIUM</td>
+            </tr>
+            <tr><td colspan="2" height="20"></td></tr>
+            <tr>
+                <td height="100px" colspan="2" align="center" valign="middle" style="font-weight: bold; font-size: 25px; border-width: 1px;border: solid; border-color: #000000;">
+                    INFORME DE SESIÓN (@FECHASESION)
+                </td>
+            </tr>
+            <tr><td colspan="2" height="20"></td></tr>
+        </table>
+    </div>
+
+    <!-- Seccion datos de usuario -->
+    <div>
+        <table class="border" style="width:100%">
+            <thead>
+                <tr>
+                    <th align="left" height="40px">DATOS DE USUARIO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <table style="width:100%" class="datauser">
+                            <tr>
+                                <td rowspan="4" style="width:15%">@FOTOUSER</td>
+                            </tr>
+                            <tr>
+
+                                <td style="width:15%; background-color: #D8D8D8">Nombre:</td>
+                                <td style="width:20%; border-bottom:1px solid green">@NAME</td>
+                                <td style="width:30%; background-color: #D8D8D8">Apellidos:</td>
+                                <td style="width:20%; border-bottom:1px solid green">@LASTNAME</td>
+                            </tr>
+                            <tr>
+
+                                <td style="width:15%; background-color: #D8D8D8">Edad:</td>
+                                <td style="width:20%; border-bottom:1px solid green">@EDAD</td>
+                                <td style="width:30%; background-color: #D8D8D8">Fecha de Nacimiento::</td>
+                                <td style="width:20%; border-bottom:1px solid green">@BIRTHDATE</td>
+                            </tr>
+                            <tr>
+
+                                <td style="width:15%; background-color: #D8D8D8">Género:</td>
+                                <td style="width:20%; border-bottom:1px solid green">@GENER</td>
+                                <td style="width:50%" colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <table style="width:100%" class="datauser">
+                                        <tr>
+                                            <td style="width:30%; background-color: #D8D8D8">Fecha de Diagnostico:</td>
+                                            <td style="width:20%; border-bottom:1px solid green">@DIAGNOSISDATE</td>
+                                            <td style="width:50%" colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:30%; background-color: #D8D8D8">Lateralidad:</td>
+                                            <td style="width:20%; border-bottom:1px solid green">@LATERALITY</td>
+                                            <td style="width:30%; background-color: #D8D8D8">Espacticidad:</td>
+                                            <td style="width:20%; border-bottom:1px solid green">@SPASTICITY</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:100%; background-color: #D8D8D8" colspan="4">Comentarios:</td>
+
+                                        </tr>
+                                        <tr style="height:100px;">
+                                            <td style="width:100%; height:100px; " colspan="4" valign="top">@COMENTS</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--Sección resumen sesion -->
+    <div>
+        <table style="width:100%">
+            <thead>
+                <tr><td height="20"></td></tr>
+                <tr>
+                    <th colspan="2" style="border-bottom:1px solid black" align="center" height="40px">RESUMEN DE SESIÓN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td height="20"></td></tr>
+                <tr>
+                    <td style="width:65%">@SESSIONSUMMARY</td>
+
+                    <td>
+                        <table class="border" style="width:100%">
+                            <tr><td style="width:100%" colspan="2" align="center">DATOS</td></tr>
+                            <tr>
+                                <td>Nº Ejercicios:</td>
+                                <td style="border-bottom:1px solid green">@NEXERCI</td>
+                            </tr>
+                            <tr>
+                                <td>Tiempo:</td>
+                                <td style="border-bottom:1px solid green">@TIMESESION</td>
+                            </tr>
+                            <tr>
+                                <td>Fecha:</td>
+                                <td style="border-bottom:1px solid green">@FECHASESION</td>
+                            </tr>
+                            <tr>
+                                <td>Movimiento:</td>
+                                <td style="border-bottom:1px solid green">@MOVTOTAL</td>
+                            </tr>
+                            <tr>
+                                <td>Fuerza:</td>
+                                <td style="border-bottom:1px solid green">@FORCETOTAL</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <table style="width:100%">
+            <tr><td colspan="3" height="20"></td></tr>
+            <tr>
+                <td colspan="2">
+                    <table style="width:100%">
+                        <tr>
+                            <td colspan="1" style="width:20%">Cliente:</td>
+                            <td colspan="3" style="width:80%; border-bottom:1px solid green">@CLIENTE</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" style="width:20%">Documento:</td>
+                            <td colspan="1" style="width:30%; border-bottom:1px solid green">@DOCUMENTO</td>
+                            <td colspan="1" style="width:10%">Fecha:</td>
+                            <td colspan="1" style="width:40%; border-bottom:1px solid green">@FECHA</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr><td colspan="3" height="20"></td></tr>
+
+            <tr>
+                <td colspan="3">
+                    <table class="border" style="width:100%">
+                        <thead style="background-color: #D8D8D8">
+                            <tr>
+                                <th>Cant.</th>
+                                <th>Decripcion</th>
+                                <th>P. Unitario</th>
+                                <th>Importe</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--<tr>
+                                <td>1</td>
+                                <td>sdadasd</td>
+                                <td>2.4</td>
+                                <td>2.4</td>
+                            </tr>
+                                -->
+                            @FILAS
+                            <tr>
+                                <td style="border: 0px !important"></td>
+                                <td style="border: 0px !important"></td>
+                                <td align="right">Total:</td>
+                                <td>@TOTAL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+
+</body>
+</html>

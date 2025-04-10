@@ -1,0 +1,281 @@
+{ "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
+,{ "pid":12345, "tid":0, "ts":1717159812287540, "dur":6120, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1717159812293701, "dur":484, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1717159812294203, "dur":1581, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1717159812295785, "dur":105885, "ph":"X", "name": "WaitForBuildFinished", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1717159812401670, "dur":234, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1717159812401905, "dur":226, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1717159812402134, "dur":114, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1717159812402249, "dur":59, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1717159812402414, "dur":1273, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
+,{ "pid":12345, "tid":1, "ts":1717159812294186, "dur":1607, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1717159812295795, "dur":500, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1717159812296296, "dur":2075, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1717159812298376, "dur":56, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Temp\\StagingArea\\WindowsPlayer.exe" }}
+,{ "pid":12345, "tid":1, "ts":1717159812298371, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter.exe" }}
+,{ "pid":12345, "tid":1, "ts":1717159812301653, "dur":1612, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter.exe" }}
+,{ "pid":12345, "tid":1, "ts":1717159812303286, "dur":1953, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":1, "ts":1717159812305265, "dur":3123, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Security.dll" }}
+,{ "pid":12345, "tid":1, "ts":1717159812308414, "dur":8195, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Data.dll" }}
+,{ "pid":12345, "tid":1, "ts":1717159812320330, "dur":64, "ph":"X", "name": "EmitNodeFinish",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1717159812316637, "dur":3763, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1717159812320425, "dur":2667, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1717159812323144, "dur":5350, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1717159812328522, "dur":4428, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1717159812332968, "dur":68664, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1717159812294170, "dur":1619, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1717159812295791, "dur":2456, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1717159812299051, "dur":585, "ph":"X", "name": "WriteText",  "args": { "detail":"Library/Bee/artifacts/csharpactions/boot.config_tyr4.info" }}
+,{ "pid":12345, "tid":2, "ts":1717159812299639, "dur":167, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library\\PlayerDataCache\\Win64\\Data\\boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1717159812299816, "dur":142, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library\\PlayerDataCache\\Win64\\Data\\ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":2, "ts":1717159812300052, "dur":123, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"E:\\repositorios\\DeveloperVisualCSharp\\RUBIDIUM\\Tasks\\ClinicalScaleMeter\\Library\\Bee\\PlayerScriptAssemblies\\Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":2, "ts":1717159812300176, "dur":238, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"E:\\repositorios\\DeveloperVisualCSharp\\RUBIDIUM\\Tasks\\ClinicalScaleMeter\\Library\\Bee\\PlayerScriptAssemblies\\Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":2, "ts":1717159812300415, "dur":160, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"E:\\repositorios\\DeveloperVisualCSharp\\RUBIDIUM\\Tasks\\ClinicalScaleMeter\\Library\\Bee\\PlayerScriptAssemblies\\Unity.AI.Navigation.dll" }}
+,{ "pid":12345, "tid":2, "ts":1717159812300576, "dur":342, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"E:\\repositorios\\DeveloperVisualCSharp\\RUBIDIUM\\Tasks\\ClinicalScaleMeter\\Library\\Bee\\PlayerScriptAssemblies\\Unity.TextMeshPro.dll" }}
+,{ "pid":12345, "tid":2, "ts":1717159812300919, "dur":299, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"E:\\repositorios\\DeveloperVisualCSharp\\RUBIDIUM\\Tasks\\ClinicalScaleMeter\\Library\\Bee\\PlayerScriptAssemblies\\UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":2, "ts":1717159812301242, "dur":157, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library\\Bee\\Playerd7bb4088-inputdata.json" }}
+,{ "pid":12345, "tid":2, "ts":1717159812299639, "dur":1804, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"AddBootConfigGUID Library/Bee/artifacts/WinPlayerBuildProgram/boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1717159812302151, "dur":96842, "ph":"X", "name": "AddBootConfigGUID",  "args": { "detail":"Library/Bee/artifacts/WinPlayerBuildProgram/boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1717159812400537, "dur":173, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library\\Bee\\artifacts\\WinPlayerBuildProgram\\boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1717159812400536, "dur":174, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1717159812400720, "dur":874, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/boot.config" }}
+,{ "pid":12345, "tid":3, "ts":1717159812294283, "dur":1531, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1717159812295816, "dur":539, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1717159812296355, "dur":1919, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1717159812298285, "dur":50, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.15f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\etc\\mono\\4.0\\machine.config" }}
+,{ "pid":12345, "tid":3, "ts":1717159812298276, "dur":60, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":3, "ts":1717159812298336, "dur":108, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1717159812309431, "dur":3785, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":3, "ts":1717159812313264, "dur":3527, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1717159812316875, "dur":4289, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1717159812321210, "dur":4683, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1717159812325939, "dur":4947, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1717159812330911, "dur":4363, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":12345, "tid":3, "ts":1717159812335292, "dur":66370, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1717159812294191, "dur":1606, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1717159812295799, "dur":588, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1717159812296387, "dur":1880, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1717159812298271, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":4, "ts":1717159812298330, "dur":105, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1717159812307260, "dur":2480, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":4, "ts":1717159812309845, "dur":3254, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Configuration.dll" }}
+,{ "pid":12345, "tid":4, "ts":1717159812313151, "dur":3718, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1717159812316915, "dur":4732, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1717159812321710, "dur":4308, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1717159812326063, "dur":4889, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1717159812331036, "dur":4498, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":4, "ts":1717159812335584, "dur":66079, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1717159812294735, "dur":1184, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1717159812295919, "dur":2346, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1717159812298267, "dur":106, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":5, "ts":1717159812298374, "dur":122, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1717159812310716, "dur":2437, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":5, "ts":1717159812313204, "dur":4001, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1717159812317250, "dur":4798, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1717159812322096, "dur":5319, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1717159812327496, "dur":4237, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1717159812331774, "dur":3849, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/level0" }}
+,{ "pid":12345, "tid":5, "ts":1717159812335646, "dur":65989, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1717159812294251, "dur":1556, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1717159812295810, "dur":642, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1717159812296452, "dur":1817, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1717159812298281, "dur":51, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.15f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\etc\\mono\\4.0\\web.config" }}
+,{ "pid":12345, "tid":6, "ts":1717159812298270, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":6, "ts":1717159812298333, "dur":91, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1717159812304132, "dur":1474, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":6, "ts":1717159812305693, "dur":4776, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":12345, "tid":6, "ts":1717159812310532, "dur":3182, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/netstandard.dll" }}
+,{ "pid":12345, "tid":6, "ts":1717159812313759, "dur":4162, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1717159812317966, "dur":3734, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1717159812321741, "dur":4156, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1717159812325941, "dur":4463, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1717159812330444, "dur":4426, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":6, "ts":1717159812334895, "dur":66762, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1717159812294313, "dur":1505, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1717159812295820, "dur":459, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1717159812296280, "dur":1993, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1717159812298274, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":12345, "tid":7, "ts":1717159812298333, "dur":102, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1717159812305181, "dur":1474, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":12345, "tid":7, "ts":1717159812306697, "dur":2493, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":12345, "tid":7, "ts":1717159812309241, "dur":3019, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":12345, "tid":7, "ts":1717159812312303, "dur":3904, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/Unity.AI.Navigation.dll" }}
+,{ "pid":12345, "tid":7, "ts":1717159812316286, "dur":3754, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1717159812320803, "dur":3961, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1717159812324808, "dur":4573, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1717159812329422, "dur":4519, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1717159812333976, "dur":67665, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1717159812294344, "dur":1480, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1717159812295827, "dur":466, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1717159812296293, "dur":2038, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1717159812298374, "dur":123, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1717159812316481, "dur":2566, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":12345, "tid":8, "ts":1717159812319096, "dur":4515, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1717159812323676, "dur":5483, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1717159812329229, "dur":3920, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1717159812333248, "dur":68435, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1717159812294365, "dur":1465, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1717159812295833, "dur":52, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1717159812295885, "dur":2390, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1717159812298276, "dur":61, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":9, "ts":1717159812298338, "dur":126, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1717159812311530, "dur":2986, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":9, "ts":1717159812314586, "dur":4668, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1717159812319296, "dur":4257, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1717159812323607, "dur":5493, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1717159812329147, "dur":4007, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1717159812333203, "dur":68445, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1717159812294450, "dur":1398, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1717159812295848, "dur":2410, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1717159812298265, "dur":57, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":10, "ts":1717159812298323, "dur":109, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1717159812301303, "dur":1064, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":10, "ts":1717159812302448, "dur":9981, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Xml.dll" }}
+,{ "pid":12345, "tid":10, "ts":1717159812312508, "dur":3886, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":10, "ts":1717159812316457, "dur":3653, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1717159812320185, "dur":3526, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1717159812323754, "dur":5247, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1717159812334233, "dur":86, "ph":"X", "name": "EmitNodeFinish",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1717159812329062, "dur":5266, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1717159812334404, "dur":67262, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1717159812294389, "dur":1447, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1717159812295836, "dur":2416, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1717159812299746, "dur":536, "ph":"X", "name": "WriteText",  "args": { "detail":"Library/Bee/artifacts/WinPlayerBuildProgram/Data/app.info" }}
+,{ "pid":12345, "tid":11, "ts":1717159812300436, "dur":1664, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/app.info" }}
+,{ "pid":12345, "tid":11, "ts":1717159812302305, "dur":14539, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/mscorlib.dll" }}
+,{ "pid":12345, "tid":11, "ts":1717159812316999, "dur":4657, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1717159812321712, "dur":5731, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.PropertiesModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1717159812327499, "dur":4804, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1717159812332343, "dur":3782, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/globalgamemanagers" }}
+,{ "pid":12345, "tid":11, "ts":1717159812336147, "dur":65493, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1717159812294420, "dur":1422, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1717159812295843, "dur":2511, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1717159812298355, "dur":72, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":12, "ts":1717159812298427, "dur":75, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1717159812320113, "dur":2260, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":12, "ts":1717159812322399, "dur":5362, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1717159812327787, "dur":4119, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.ContentLoadModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1717159812331927, "dur":4386, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/globalgamemanagers.assets.resS" }}
+,{ "pid":12345, "tid":12, "ts":1717159812336333, "dur":65347, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1717159812294477, "dur":1377, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1717159812295854, "dur":2414, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1717159812300807, "dur":1295, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":13, "ts":1717159812302289, "dur":10596, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.dll" }}
+,{ "pid":12345, "tid":13, "ts":1717159812312911, "dur":2673, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":12345, "tid":13, "ts":1717159812315615, "dur":3508, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":13, "ts":1717159812319147, "dur":4160, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":12345, "tid":13, "ts":1717159812323334, "dur":4822, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":12345, "tid":13, "ts":1717159812328212, "dur":3947, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":12345, "tid":13, "ts":1717159812332183, "dur":3734, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":13, "ts":1717159812335933, "dur":65741, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1717159812294505, "dur":1355, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1717159812295860, "dur":2400, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1717159812298313, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1717159812305796, "dur":1626, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":12345, "tid":14, "ts":1717159812307448, "dur":2397, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":12345, "tid":14, "ts":1717159812309882, "dur":2432, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":12345, "tid":14, "ts":1717159812312338, "dur":3139, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":14, "ts":1717159812315498, "dur":2532, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1717159812318059, "dur":3209, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1717159812321293, "dur":3942, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1717159812325256, "dur":4942, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1717159812330221, "dur":4308, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":14, "ts":1717159812334543, "dur":67130, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1717159812294536, "dur":1330, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1717159812295866, "dur":2458, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1717159812298347, "dur":97, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1717159812308145, "dur":2354, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":12345, "tid":15, "ts":1717159812310532, "dur":25832, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":15, "ts":1717159812336379, "dur":65299, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1717159812294618, "dur":1264, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1717159812295882, "dur":2479, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1717159812298371, "dur":54, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.15f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\EmbedRuntime\\mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":16, "ts":1717159812298362, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":16, "ts":1717159812298427, "dur":88, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1717159812322556, "dur":5632, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":16, "ts":1717159812328217, "dur":5239, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1717159812333477, "dur":68159, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":17, "ts":1717159812294571, "dur":1300, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":17, "ts":1717159812295871, "dur":2382, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":17, "ts":1717159812298275, "dur":95, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.15f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":17, "ts":1717159812298260, "dur":111, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":17, "ts":1717159812298371, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":17, "ts":1717159812302944, "dur":4230, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":17, "ts":1717159812307223, "dur":2115, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":12345, "tid":17, "ts":1717159812309381, "dur":6074, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Core.dll" }}
+,{ "pid":12345, "tid":17, "ts":1717159812315501, "dur":3942, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":12345, "tid":17, "ts":1717159812319485, "dur":4291, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":12345, "tid":17, "ts":1717159812323817, "dur":4865, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":12345, "tid":17, "ts":1717159812328734, "dur":4069, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":12345, "tid":17, "ts":1717159812332834, "dur":68800, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1717159812294600, "dur":1276, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1717159812295877, "dur":2384, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1717159812298360, "dur":73, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.15f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\etc\\mono\\4.5\\web.config" }}
+,{ "pid":12345, "tid":18, "ts":1717159812298265, "dur":168, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":18, "ts":1717159812298433, "dur":92, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1717159812328425, "dur":3182, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":18, "ts":1717159812331633, "dur":3916, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/resources.assets" }}
+,{ "pid":12345, "tid":18, "ts":1717159812335565, "dur":66085, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":19, "ts":1717159812294639, "dur":1254, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":19, "ts":1717159812295893, "dur":2361, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":19, "ts":1717159812298260, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":19, "ts":1717159812298311, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":19, "ts":1717159812302483, "dur":1203, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":19, "ts":1717159812303782, "dur":1924, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Transactions.dll" }}
+,{ "pid":12345, "tid":19, "ts":1717159812305782, "dur":2509, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Numerics.dll" }}
+,{ "pid":12345, "tid":19, "ts":1717159812308332, "dur":3448, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.Drawing.dll" }}
+,{ "pid":12345, "tid":19, "ts":1717159812311813, "dur":4800, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/Unity.TextMeshPro.dll" }}
+,{ "pid":12345, "tid":19, "ts":1717159812316632, "dur":2773, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":12345, "tid":19, "ts":1717159812319447, "dur":3637, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":12345, "tid":19, "ts":1717159812323153, "dur":5018, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":12345, "tid":19, "ts":1717159812328204, "dur":4459, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":12345, "tid":19, "ts":1717159812332694, "dur":68944, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":20, "ts":1717159812294655, "dur":1243, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":20, "ts":1717159812295898, "dur":2416, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":20, "ts":1717159812298349, "dur":130, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":20, "ts":1717159812319884, "dur":1734, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":20, "ts":1717159812321664, "dur":5371, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":12345, "tid":20, "ts":1717159812327063, "dur":3964, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":12345, "tid":20, "ts":1717159812331049, "dur":4667, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/resources.assets.resS" }}
+,{ "pid":12345, "tid":20, "ts":1717159812335731, "dur":65986, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":21, "ts":1717159812294677, "dur":1226, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":21, "ts":1717159812295904, "dur":2419, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":21, "ts":1717159812298353, "dur":120, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":21, "ts":1717159812317639, "dur":2308, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":12345, "tid":21, "ts":1717159812319986, "dur":4240, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":12345, "tid":21, "ts":1717159812324254, "dur":4858, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":21, "ts":1717159812329136, "dur":3447, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":12345, "tid":21, "ts":1717159812332600, "dur":69039, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":22, "ts":1717159812294703, "dur":1206, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":22, "ts":1717159812295909, "dur":2354, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":22, "ts":1717159812300624, "dur":1457, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":12345, "tid":22, "ts":1717159812302316, "dur":2748, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Resources/unity default resources" }}
+,{ "pid":12345, "tid":22, "ts":1717159812305092, "dur":2518, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":22, "ts":1717159812307646, "dur":2753, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":12345, "tid":22, "ts":1717159812310427, "dur":2378, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/Mono.Security.dll" }}
+,{ "pid":12345, "tid":22, "ts":1717159812312830, "dur":1775, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.dll" }}
+,{ "pid":12345, "tid":22, "ts":1717159812314632, "dur":3382, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":12345, "tid":22, "ts":1717159812318041, "dur":3308, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":12345, "tid":22, "ts":1717159812321374, "dur":4325, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":12345, "tid":22, "ts":1717159812325779, "dur":4249, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":12345, "tid":22, "ts":1717159812330059, "dur":5570, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/ClinicalScaleMeter_Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":22, "ts":1717159812335648, "dur":66024, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1717159812294720, "dur":1194, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1717159812295914, "dur":2445, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1717159812298366, "dur":66, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.15f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\EmbedRuntime\\MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":23, "ts":1717159812298359, "dur":73, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":23, "ts":1717159812298433, "dur":87, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1717159812325080, "dur":4622, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":23, "ts":1717159812329757, "dur":106, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.15f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\UnityPlayer.dll" }}
+,{ "pid":12345, "tid":23, "ts":1717159812329756, "dur":108, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":23, "ts":1717159812329900, "dur":11996, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":23, "ts":1717159812341918, "dur":59736, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":24, "ts":1717159812294231, "dur":1570, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":24, "ts":1717159812295803, "dur":413, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":24, "ts":1717159812296217, "dur":2141, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":24, "ts":1717159812298359, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":24, "ts":1717159812298422, "dur":106, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":24, "ts":1717159812330546, "dur":4556, "ph":"X", "name": "CopyFiles",  "args": { "detail":"E:/repositorios/rubidium_games/ClinicalScaleMeter/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":24, "ts":1717159812335146, "dur":66525, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1717159812405205, "dur":690, "ph":"X", "name": "ProfilerWriteOutput" }
+,
