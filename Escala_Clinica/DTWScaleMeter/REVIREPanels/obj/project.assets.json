@@ -200,11 +200,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\repositorios\\Rubidium_repositorios\\DTWScaleMeter\\REVIREPanels\\REVIREPanels.csproj",
+      "projectUniqueName": "E:\\repositorios\\Rubidium_repositorios\\rubidium\\Escala_Clinica\\DTWScaleMeter\\REVIREPanels\\REVIREPanels.csproj",
       "projectName": "REVIREPanels",
-      "projectPath": "E:\\repositorios\\Rubidium_repositorios\\DTWScaleMeter\\REVIREPanels\\REVIREPanels.csproj",
+      "projectPath": "E:\\repositorios\\Rubidium_repositorios\\rubidium\\Escala_Clinica\\DTWScaleMeter\\REVIREPanels\\REVIREPanels.csproj",
       "packagesPath": "C:\\Users\\McCarthy\\.nuget\\packages\\",
-      "outputPath": "E:\\repositorios\\Rubidium_repositorios\\DTWScaleMeter\\REVIREPanels\\obj\\",
+      "outputPath": "E:\\repositorios\\Rubidium_repositorios\\rubidium\\Escala_Clinica\\DTWScaleMeter\\REVIREPanels\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

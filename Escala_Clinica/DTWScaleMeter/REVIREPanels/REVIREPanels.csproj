@@ -49,14 +49,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Componentes\BinaryDataManagerOld.cs" />
     <Compile Include="Componentes\CustomCheckedListBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Componentes\DataRobotOld.cs" />
     <Compile Include="DTW.cs" />
     <Compile Include="Estadisticas\Graficas\ChartValoration.cs" />
-    <Compile Include="Estadisticas\Graficas\PositionChartOld.cs" />
     <Compile Include="Estadisticas\Paneles\PanelInfoPerform.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,12 +96,6 @@
     <Compile Include="PanelEstadisticas.Designer.cs">
       <DependentUpon>PanelEstadisticas.cs</DependentUpon>
     </Compile>
-    <Compile Include="PanelPass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PanelPass.Designer.cs">
-      <DependentUpon>PanelPass.cs</DependentUpon>
-    </Compile>
     <Compile Include="PanelPrincipal.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,9 +135,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PanelEstadisticas.resx">
       <DependentUpon>PanelEstadisticas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PanelPass.resx">
-      <DependentUpon>PanelPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PanelPrincipal.resx">
       <DependentUpon>PanelPrincipal.cs</DependentUpon>

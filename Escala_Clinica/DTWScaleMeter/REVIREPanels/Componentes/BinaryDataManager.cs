@@ -233,11 +233,14 @@ namespace REVIREPanels.Componentes
                     case TypeData.TD_TimeStamp:
                         axisXData = datarobot.Select(x => x.TimeStamp); break;
                     case TypeData.TD_Xpr: //Eje X filtrado a taskstate
-                        axisXData = datarobot.Where(x => x.TaskState == 2).Select(x => x.Xpr);
-                        int i = axisXData.ToList().Count;
+                        double[] result = datarobot.Where(x => x.TaskState == 2).Select(x => x.Xpr).ToArray(); //Filtrado de taskstate
+                        axisXData = result.Where((val, index) => index == 0 || val != result[index - 1]);//Filtrado de repetidos
+                        
                         break;                    
                     case TypeData.TD_Ypr:
-                        axisXData = datarobot.Where(x => x.TaskState == 2).Select(x => x.Ypr); break;
+                        double[] result2 = datarobot.Where(x => x.TaskState == 2).Select(x => x.Ypr).ToArray(); //Filtrado de taskstate
+                        axisXData = result2.Where((val, index) => index == 0 || val != result2[index - 1]);//Filtrado de repetidos
+                        break;
                     case TypeData.TD_Vxr:
                         axisXData = datarobot.Select(x => x.Vxr); break;
                     case TypeData.TD_Vyr:

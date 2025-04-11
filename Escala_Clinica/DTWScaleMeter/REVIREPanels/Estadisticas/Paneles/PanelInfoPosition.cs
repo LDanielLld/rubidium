@@ -163,15 +163,24 @@ namespace REVIREPanels.Estadisticas.Paneles
                      BinaryDataManager.GetAxisData(TypeData.TD_Ypr, 0),
                      ch_PosTargetZone.Checked, (float)sampleSelector.Value);*/
 
-                //  poschart.Update(ideal[8], ch_PosTargetZone.Checked, 1000); 
+                int id = 0;
+                poschart.Update(ideal[id], ch_PosTargetZone.Checked, 1000); 
 
                 //Actualiza trial
-                int id = 3;
+                
                 poschart.Update(BinaryDataManager.GetAxisDataTrial(TypeData.TD_Xpr, 0, id), 
                   BinaryDataManager.GetAxisDataTrial(TypeData.TD_Ypr, 0, id),
                   ch_PosTargetZone.Checked, 1000);
 
+                List<float[]> d = ideal[id];
 
+                Vector3[] result =
+                    BinaryDataManager.GetAxisDataTrial(TypeData.TD_Xpr, 0, id).Zip(BinaryDataManager.GetAxisDataTrial(TypeData.TD_Ypr, 0, id), (x, y) => new Vector3((float)x, (float)y, 0)).ToArray();
+
+
+
+                var data = DTW.Calculate(d, result, 1);
+                float dist = data.Distance;
 
 #else
 

@@ -1242,8 +1242,8 @@ namespace REVIREPanels.Graficas
 
                     //Crea fila
                     DataRow row = dt.NewRow();
-                    row["X"] = (xvalues.ElementAt(index) /10 - centralPoint.X)*9;
-                    row["Y"] = (yvalues.ElementAt(index) /10 - centralPoint.Y)*9;
+                    row["X"] = (xvalues.ElementAt(index) /10 - centralPoint.X)*10;
+                    row["Y"] = (yvalues.ElementAt(index) /10 - centralPoint.Y)*10;
                     dt.Rows.Add(row);
                 }    
 

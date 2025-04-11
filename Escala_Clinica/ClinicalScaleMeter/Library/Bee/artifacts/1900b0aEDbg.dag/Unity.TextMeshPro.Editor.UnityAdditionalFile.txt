@@ -1,1 +1,1 @@
-E:\repositorios\DeveloperVisualCSharp\RUBIDIUM\Tasks\ClinicalScaleMeter
+E:\repositorios\Rubidium_repositorios\rubidium\Escala_Clinica\ClinicalScaleMeter

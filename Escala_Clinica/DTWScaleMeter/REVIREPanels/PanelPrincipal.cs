@@ -82,7 +82,7 @@ namespace REVIREPanels
             panelREVIRE.Controls.Add(Inicio);
 
 
-           DTW.GenerateIdealPath(350, 1000);
+     
 
             Vector3[] seq1 = new Vector3[]
        {

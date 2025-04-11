@@ -141,7 +141,88 @@ namespace REVIREPanels
         }
 
 
-    public static DTWResult Calculate(Vector3[] seq1, Vector3[] seq2, int windowSize = -1)
+        public static DTWResult Calculate(List<float[]> seq1, Vector3[] seq2, int windowSize = -1)
+        {
+            //Obtiene las longitudes de los vectores
+            int n = seq1.Count;
+            int m = seq2.Length;
+
+            // Si no se define ventana, se permite comparar todo
+            int w = (windowSize < 0) ? Math.Max(n, m) : windowSize;
+
+            //Matriz de coste
+            float[,] cost = new float[n + 1, m + 1];
+
+
+
+            // Inicializar con infinito
+            for (int i = 0; i <= n; i++)
+                for (int j = 0; j <= m; j++)
+                    cost[i, j] = float.PositiveInfinity;
+
+            cost[0, 0] = 0;
+
+            // Llenar matriz DTW
+            for (int i = 1; i <= n; i++)
+            {
+                int jStart = Math.Max(1, i - w);
+                int jEnd = Math.Min(m, i + w);
+
+                for (int j = jStart; j <= jEnd; j++)
+                {
+                    float[] cSeq1 = seq1[i - 1];
+
+                    float dist = Vector3.Distance( new Vector3(cSeq1[0], cSeq1[1], 0), seq2[j - 1]);
+                    float minPrev = Math.Min(
+                        cost[i - 1, j],      // inserción
+                        cost[i, j - 1]);      // eliminación
+                    minPrev = Math.Min(minPrev, cost[i - 1, j - 1]);   // coincidencia
+                    //);
+                    cost[i, j] = dist + minPrev;
+                }
+            }
+
+
+            int x = n;
+            int y = m;
+
+            // Reconstruir el camino óptimo
+            List<int[]> path = new List<int[]>();
+
+            while (x > 0 && y > 0)
+            {
+                path.Add(new int[] { x - 1, y - 1 });
+
+                float diag = cost[x - 1, y - 1];
+                float left = cost[x, y - 1];
+                float up = cost[x - 1, y];
+
+                if (diag <= left && diag <= up)
+                {
+                    x--; y--;
+                }
+                else if (left < up)
+                {
+                    y--;
+                }
+                else
+                {
+                    x--;
+                }
+            }
+
+            path.Reverse();
+
+
+            return new DTWResult
+            {
+                Distance = cost[n, m],
+                Path = path
+            };
+        }
+
+
+        public static DTWResult Calculate(Vector3[] seq1, Vector3[] seq2, int windowSize = -1)
         {
             //Obtiene las longitudes de los vectores
             int n = seq1.Length;
