@@ -47,9 +47,7 @@ namespace REVIREPanels.Estadisticas.Paneles
 
             //Configura el selector de muestras
             samples = s;
-            sampleSelector.Maximum = (int)s;
-            sampleSelector.Minimum = 100;
-            sampleSelector.Value = 1500;
+           
 
         }
 
@@ -68,84 +66,20 @@ namespace REVIREPanels.Estadisticas.Paneles
 
         public void Reset()
         {
-            //Resetear toda la interfaz
-            cb_PosX.Checked = false;
-            cb_PosY.Checked = false;
-            cb_PosTrajectory.Checked = false;
-
-            cb_PosIdeal.Checked = false;
-            cb_posTargets.Checked = false;
-            ch_PosTargetZone.Checked = false;
+            //Resetear toda la interfaz           
+            cb_PosTrajectory.Checked = false;            
         }
         //**********************Visualizar datos de posicion**************************//
         //****************************************************************************//
-        #region Datos Grafica posicion
-        private void cb_PosX_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            if (cb_PosX.Checked)
-            {
-                cb_PosTrajectory.Checked = false; //Quita seleccion anterior
-
-                //Desctivar complementarios
-                cb_PosIdeal.Enabled = false;
-                cb_posTargets.Enabled = false;
-                ch_PosTargetZone.Enabled = false;                   
-
-                //Configura grafica de datos para la visualizacion de posicion
-                poschart = new PositionChart(chartData, 3);
-                poschart.ConfigureChartView(new Vector2(0, 0), last, distance); //Establece la vista de la grafica   
-                poschart.AddFeature(BinaryDataManager.GetAxisData(TypeData.TD_TimeStamp, 0),
-                    BinaryDataManager.GetAxisData(TypeData.TD_Xpr, 0),
-                    "PosX", (float)sampleSelector.Value);
-
-            }
-            else
-            {
-                poschart.RemoveFeature("PosX");
-            }
-           
-        }
-
-        private void cb_PosY_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            if (cb_PosY.Checked)
-            {
-                cb_PosTrajectory.Checked = false; //Quita seleccion anterior
-
-                //Desctivar complementarios
-                cb_PosIdeal.Enabled = false;
-                cb_posTargets.Enabled = false;
-                ch_PosTargetZone.Enabled = false;                    
-
-
-                //Configura grafica de datos para la visualizacion de posicion
-                poschart = new PositionChart(chartData, 3);
-                poschart.ConfigureChartView(new Vector2(0, -53), last, distance); //Establece la vista de la grafica   
-                poschart.AddFeature(BinaryDataManager.GetAxisData(TypeData.TD_TimeStamp, 0),
-                    BinaryDataManager.GetAxisData(TypeData.TD_Ypr, 0), "PosY", (float)sampleSelector.Value);
-            }
-            else
-            {
-                poschart.RemoveFeature("PosY");
-            }
-            
-        }
+        #region Datos Grafica posicion       
+        
 
         private void cb_PosTrajectory_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_PosTrajectory.Checked)
                 {
-                    //Primero quita seleccion anterior para que no se solape
-                    cb_PosX.Checked = false;
-                    cb_PosY.Checked = false;
-
-                    //Activar complementarios
-                    cb_PosIdeal.Enabled = true;
-                    cb_posTargets.Enabled = true;
-                    ch_PosTargetZone.Enabled = true;
-
+                  
+                
                 
                     //Configura grafica de datos para la visualizacion de posicion
                     poschart = new PositionChart(chartData, 3);
@@ -164,13 +98,13 @@ namespace REVIREPanels.Estadisticas.Paneles
                      ch_PosTargetZone.Checked, (float)sampleSelector.Value);*/
 
                 int id = 0;
-                poschart.Update(ideal[id], ch_PosTargetZone.Checked, 1000); 
+                poschart.Update(ideal[id], false, 1000); 
 
                 //Actualiza trial
                 
                 poschart.Update(BinaryDataManager.GetAxisDataTrial(TypeData.TD_Xpr, 0, id), 
                   BinaryDataManager.GetAxisDataTrial(TypeData.TD_Ypr, 0, id),
-                  ch_PosTargetZone.Checked, 1000);
+                  false, 1000);
 
                 List<float[]> d = ideal[id];
 
@@ -182,6 +116,17 @@ namespace REVIREPanels.Estadisticas.Paneles
                 var data = DTW.Calculate(d, result, 1);
                 float dist = data.Distance;
 
+
+                //Calcular distancias totales
+                Trial[] trial = new Trial[BinaryDataManager.listTrialDataRobot[0].Count];
+                List<DataRobot[]> lista = BinaryDataManager.listTrialDataRobot[0];
+                for (int i=0; i<lista.Count; i++)
+                {
+                    Trial cTrial = new Trial(lista[i], d, 10f, 350f);
+                    trial[i] = cTrial;
+                }
+
+               
 #else
 
                     //Calcula objetivos
@@ -206,56 +151,14 @@ namespace REVIREPanels.Estadisticas.Paneles
                 poschart.ClearTargets();
 
 
-                //Desctivar complementarios
-                cb_PosIdeal.Enabled = false;
-                cb_posTargets.Enabled = false;
-                ch_PosTargetZone.Enabled = false;
+               
             }
         }
-
-
-
-        
 
         #endregion
 
 
-        #region Caracteristicas
-        private void cb_PosIdeal_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cb_PosTrajectory.Checked)
-            {
-                if (cb_PosIdeal.Checked)
-                {
-                    //Pintar trajectoria ideal                                                        
-                    IEnumerable<double> originX = BinaryDataManager.GetAxisData(TypeData.TD_Xpr0, 0);
-                    IEnumerable<double> originY = BinaryDataManager.GetAxisData(TypeData.TD_Ypr0, 0);
-                    Vector2 origin = new Vector2((float)originX.ElementAt(0), (float)originY.ElementAt(0));
-
-                    poschart.SetIdealTrajectory(BinaryDataManager.GetAxisData(TypeData.TD_XprF, 0),
-                        BinaryDataManager.GetAxisData(TypeData.TD_YprF, 0)
-                        , origin); //Trajectorias ideales
-                }
-                else
-                {
-                    poschart.RemoveFeature("SeriesIdeal");
-                }
-            }
-        }
-
-        private void cb_posTargets_CheckedChanged(object sender, EventArgs e)
-        {
-            //Actualiza objetivos
-            poschart.IsDrawTargetCircle(cb_posTargets.Checked);
-        }
-
-        private void ch_TargetZone_CheckedChanged(object sender, EventArgs e)
-        {
-            //Actualiza la zona de objetivos
-            poschart.IsDrawTargetZone(ch_PosTargetZone.Checked);
-        }
-        #endregion
-
+      
         #region Trials        
 
         private int InitialFlagTrial = -1;
@@ -274,8 +177,7 @@ namespace REVIREPanels.Estadisticas.Paneles
                 {
                     // Primero quita seleccion anterior para que no se solape
                     cb_PosTrajectory.Checked = false;
-                    cb_PosX.Checked = true;
-                    cb_PosY.Checked = true;
+                   
 
                     //Activa selectores de  flag
                     cb_final_flag.Enabled = true;
@@ -307,14 +209,13 @@ namespace REVIREPanels.Estadisticas.Paneles
                 else
                 {
                     poschart.Reset();
-                    cb_PosX.Checked = false;
-                    cb_PosY.Checked = false;
+                    
 
                     //Resetea interfaz
                     trialSelector.Value = 0;
                     trialSelector.Enabled = false;
 
-                    btnApplyTrials.Enabled = false;
+                    //btnApplyTrials.Enabled = false;
 
                     ResetFlags();
 
@@ -440,40 +341,71 @@ namespace REVIREPanels.Estadisticas.Paneles
 
         private void CheckButtonApply()
         {
-            if (FinalFlagTrial != -1 && InitialFlagTrial != -1)
-                btnApplyTrials.Enabled = true;
+         //   if (FinalFlagTrial != -1 && InitialFlagTrial != -1)
+              //  btnApplyTrials.Enabled = true;
         }
+
+        private int contTrialIdeal = -1;
+        private int contTrial = -1;
 
         private void btnApplyTrials_Click(object sender, EventArgs e)
         {
-            //Aplica los selectores de flag para separar los trials
-            if (InitialFlagTrial != -1 && FinalFlagTrial != -1) //Se ha seleccionado un valor
-            {
-                trials = poschart.GetTrialIndex((string)cb_initial_flag.SelectedItem, (string)cb_final_flag.SelectedItem,
-                    (string)cb_error_flag.SelectedItem,
-                    BinaryDataManager.GetAxisData(TypeData.TD_TaskState, 0),
-                    BinaryDataManager.GetAxisData(TypeData.TD_TimeStamp, 0));
+            contTrial++;
+            if (contTrial > 17)
+                contTrial = 0;
 
-                //Establece limite de trials para el selector
-                trialSelector.Maximum = trials.Length - 1;
-                trialSelector.Enabled = true;                
 
-                //Seleccionar trial 0 en caso de existir
-                poschart.Reset(); //Inicializa grafica
-                poschart = new PositionChart(chartData, 3);
+            contTrialIdeal++;
+            if (contTrialIdeal > 8)
+                contTrialIdeal = 0;
+
+
+            poschart = new PositionChart(chartData, 3);
+            poschart.RemoveFeature("SeriesIdeal");
+            poschart.RemoveFeature("SeriesPos");            
+            poschart.ClearTargets();
+           
+
+
+                //Configura grafica de datos para la visualizacion de posicion
+                
                 poschart.ConfigureChartView(new Vector2(0, -53), distance); //Establece la vista de la grafica    
 
-                poschart.SliceTrial(trials[(int)trialSelector.Value],
-                    BinaryDataManager.GetAxisData(TypeData.TD_Xpr, 0),
-                    BinaryDataManager.GetAxisData(TypeData.TD_Ypr, 0));
+                
+                poschart.Update(ideal[contTrialIdeal], false, 1000);
+
+                //Actualiza trial
+                poschart.Update(BinaryDataManager.GetAxisDataTrial(TypeData.TD_Xpr, 0, contTrial),
+                  BinaryDataManager.GetAxisDataTrial(TypeData.TD_Ypr, 0, contTrial),
+                  false, 1000);
 
 
-                //Deshabilita compoentnes
-                ResetFlags();
-                btnApplyTrials.Enabled = false;
 
-                lblFocus.Focus();
-            }
+                List<float[]> d = ideal[contTrialIdeal];
+                //Calcular distancias totales
+                Trial[] trial = new Trial[BinaryDataManager.listTrialDataRobot[0].Count];
+                List<DataRobot[]> lista = BinaryDataManager.listTrialDataRobot[0];
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    Trial cTrial = new Trial(lista[i], d, 10f, 350f);
+                    trial[i] = cTrial;
+                }
+
+
+
+
+
+                /* poschart.AddCircleTargets(BinaryDataManager.sharedInstance.GetAxisData(TypeData.TD_XprF, 0),
+                     BinaryDataManager.sharedInstance.GetAxisData(TypeData.TD_YprF, 0));*/
+            
+            
+
+            
+
+
+
+            lblFocus.Focus();
+          
         }
 
         private void trialSelector_ValueChanged(object sender, EventArgs e)
@@ -517,7 +449,9 @@ namespace REVIREPanels.Estadisticas.Paneles
             FinalFlagTrial = -1;
             ErrorFlagTrial = -1;
         }
+
         
+
         #endregion
         //****************************************************************************//
         //****************************************************************************//

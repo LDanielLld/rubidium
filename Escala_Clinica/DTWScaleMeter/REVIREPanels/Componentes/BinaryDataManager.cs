@@ -233,17 +233,24 @@ namespace REVIREPanels.Componentes
                     case TypeData.TD_TimeStamp:
                         axisXData = datarobot.Select(x => x.TimeStamp); break;
                     case TypeData.TD_Xpr: //Eje X filtrado a taskstate
-                        double[] result = datarobot.Where(x => x.TaskState == 2).Select(x => x.Xpr).ToArray(); //Filtrado de taskstate
-                        axisXData = result.Where((val, index) => index == 0 || val != result[index - 1]);//Filtrado de repetidos
+                        axisXData = datarobot.Where(x => x.TaskState == 2).Select(x => x.Xpr); //Filtrado de taskstate
+                       // axisXData = result.Where((val, index) => index == 0 || val != result[index - 1]);//Filtrado de repetidos
                         
                         break;                    
                     case TypeData.TD_Ypr:
-                        double[] result2 = datarobot.Where(x => x.TaskState == 2).Select(x => x.Ypr).ToArray(); //Filtrado de taskstate
-                        axisXData = result2.Where((val, index) => index == 0 || val != result2[index - 1]);//Filtrado de repetidos
+                        axisXData = datarobot.Where(x => x.TaskState == 2).Select(x => x.Ypr); //Filtrado de taskstate
+                        //axisXData = result2.Where((val, index) => index == 0 || val != result2[index - 1]);//Filtrado de repetidos
                         break;
                     case TypeData.TD_Vxr:
-                        axisXData = datarobot.Select(x => x.Vxr); break;
+                       /* double[] result3 = datarobot.Where(x => x.TaskState == 2).Select(x => x.Vxr).ToArray(); //Filtrado de taskstate
+                        axisXData = result3.Where((val, index) => index == 0 || val != result3[index - 1]);//Filtrado de repetidos
+                        */
+                        axisXData = datarobot.Select(x => x.Vxr);break;
                     case TypeData.TD_Vyr:
+
+                        /*double[] result4 = datarobot.Where(x => x.TaskState == 2).Select(x => x.Vyr).ToArray(); //Filtrado de taskstate
+                        axisXData = result4.Where((val, index) => index == 0 || val != result4[index - 1]);//Filtrado de repetidos
+                        */
                         axisXData = datarobot.Select(x => x.Vyr); break;
                     case TypeData.TD_Fxr:
                         axisXData = datarobot.Select(x => x.Fxr); break;

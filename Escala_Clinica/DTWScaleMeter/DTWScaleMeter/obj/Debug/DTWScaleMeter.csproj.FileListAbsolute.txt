@@ -26,3 +26,5 @@ E:\repositorios\Rubidium_repositorios\rubidium\Escala_Clinica\DTWScaleMeter\DTWS
 E:\repositorios\Rubidium_repositorios\rubidium\Escala_Clinica\DTWScaleMeter\DTWScaleMeter\obj\Debug\DTWScaleMeter.csproj.CopyComplete
 E:\repositorios\Rubidium_repositorios\rubidium\Escala_Clinica\DTWScaleMeter\DTWScaleMeter\obj\Debug\REVIRE.exe
 E:\repositorios\Rubidium_repositorios\rubidium\Escala_Clinica\DTWScaleMeter\DTWScaleMeter\obj\Debug\REVIRE.pdb
+E:\repositorios\Rubidium_repositorios\rubidium\Escala_Clinica\DTWScaleMeter\DTWScaleMeter\bin\Debug\FastDtw.CSharp.dll
+E:\repositorios\Rubidium_repositorios\rubidium\Escala_Clinica\DTWScaleMeter\DTWScaleMeter\bin\Debug\netstandard.dll

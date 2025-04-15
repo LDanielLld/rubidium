@@ -32,18 +32,10 @@
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.chartData = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
-            this.cb_PosIdeal = new System.Windows.Forms.CheckBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ch_PosTargetZone = new System.Windows.Forms.CheckBox();
-            this.cb_posTargets = new System.Windows.Forms.CheckBox();
-            this.lblFocus = new System.Windows.Forms.Label();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.cb_PosX = new System.Windows.Forms.CheckBox();
-            this.cb_PosY = new System.Windows.Forms.CheckBox();
             this.cb_PosTrajectory = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.sampleSelector = new System.Windows.Forms.NumericUpDown();
+            this.lblFocus = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.cb_error_flag = new System.Windows.Forms.ComboBox();
@@ -58,9 +50,7 @@
             this.tableLayoutPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartData)).BeginInit();
             this.tableLayoutPanel13.SuspendLayout();
-            this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sampleSelector)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trialSelector)).BeginInit();
@@ -116,7 +106,6 @@
             this.tableLayoutPanel13.ColumnCount = 2;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel21, 0, 1);
             this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel14, 0, 0);
             this.tableLayoutPanel13.Controls.Add(this.groupBox3, 0, 2);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -130,102 +119,6 @@
             this.tableLayoutPanel13.Size = new System.Drawing.Size(526, 632);
             this.tableLayoutPanel13.TabIndex = 10;
             // 
-            // tableLayoutPanel21
-            // 
-            this.tableLayoutPanel21.ColumnCount = 4;
-            this.tableLayoutPanel13.SetColumnSpan(this.tableLayoutPanel21, 3);
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel21.Controls.Add(this.cb_PosIdeal, 0, 1);
-            this.tableLayoutPanel21.Controls.Add(this.label10, 0, 0);
-            this.tableLayoutPanel21.Controls.Add(this.ch_PosTargetZone, 0, 3);
-            this.tableLayoutPanel21.Controls.Add(this.cb_posTargets, 0, 2);
-            this.tableLayoutPanel21.Controls.Add(this.lblFocus, 3, 0);
-            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(4, 163);
-            this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
-            this.tableLayoutPanel21.RowCount = 4;
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(518, 211);
-            this.tableLayoutPanel21.TabIndex = 8;
-            // 
-            // cb_PosIdeal
-            // 
-            this.cb_PosIdeal.AutoSize = true;
-            this.tableLayoutPanel21.SetColumnSpan(this.cb_PosIdeal, 2);
-            this.cb_PosIdeal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cb_PosIdeal.Enabled = false;
-            this.cb_PosIdeal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_PosIdeal.Location = new System.Drawing.Point(4, 57);
-            this.cb_PosIdeal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_PosIdeal.Name = "cb_PosIdeal";
-            this.cb_PosIdeal.Size = new System.Drawing.Size(250, 42);
-            this.cb_PosIdeal.TabIndex = 23;
-            this.cb_PosIdeal.Text = "Trayectoria ideal";
-            this.cb_PosIdeal.UseVisualStyleBackColor = true;
-            this.cb_PosIdeal.CheckedChanged += new System.EventHandler(this.cb_PosIdeal_CheckedChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.tableLayoutPanel21.SetColumnSpan(this.label10, 3);
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(4, 0);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(405, 52);
-            this.label10.TabIndex = 30;
-            this.label10.Text = "Características";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ch_PosTargetZone
-            // 
-            this.ch_PosTargetZone.AutoSize = true;
-            this.tableLayoutPanel21.SetColumnSpan(this.ch_PosTargetZone, 2);
-            this.ch_PosTargetZone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ch_PosTargetZone.Enabled = false;
-            this.ch_PosTargetZone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ch_PosTargetZone.Location = new System.Drawing.Point(4, 161);
-            this.ch_PosTargetZone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ch_PosTargetZone.Name = "ch_PosTargetZone";
-            this.ch_PosTargetZone.Size = new System.Drawing.Size(250, 45);
-            this.ch_PosTargetZone.TabIndex = 6;
-            this.ch_PosTargetZone.Text = "Zona objetivo";
-            this.ch_PosTargetZone.UseVisualStyleBackColor = true;
-            this.ch_PosTargetZone.CheckedChanged += new System.EventHandler(this.ch_TargetZone_CheckedChanged);
-            // 
-            // cb_posTargets
-            // 
-            this.cb_posTargets.AutoSize = true;
-            this.tableLayoutPanel21.SetColumnSpan(this.cb_posTargets, 2);
-            this.cb_posTargets.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cb_posTargets.Enabled = false;
-            this.cb_posTargets.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_posTargets.Location = new System.Drawing.Point(4, 109);
-            this.cb_posTargets.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_posTargets.Name = "cb_posTargets";
-            this.cb_posTargets.Size = new System.Drawing.Size(250, 42);
-            this.cb_posTargets.TabIndex = 24;
-            this.cb_posTargets.Text = "Objetivos";
-            this.cb_posTargets.UseVisualStyleBackColor = true;
-            this.cb_posTargets.CheckedChanged += new System.EventHandler(this.cb_posTargets_CheckedChanged);
-            // 
-            // lblFocus
-            // 
-            this.lblFocus.AutoSize = true;
-            this.lblFocus.Location = new System.Drawing.Point(417, 0);
-            this.lblFocus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFocus.Name = "lblFocus";
-            this.lblFocus.Size = new System.Drawing.Size(0, 20);
-            this.lblFocus.TabIndex = 31;
-            // 
             // tableLayoutPanel14
             // 
             this.tableLayoutPanel14.ColumnCount = 4;
@@ -234,11 +127,9 @@
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel14.Controls.Add(this.cb_PosX, 0, 1);
-            this.tableLayoutPanel14.Controls.Add(this.cb_PosY, 2, 1);
             this.tableLayoutPanel14.Controls.Add(this.cb_PosTrajectory, 0, 2);
             this.tableLayoutPanel14.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel14.Controls.Add(this.sampleSelector, 2, 2);
+            this.tableLayoutPanel14.Controls.Add(this.lblFocus, 3, 1);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(4, 5);
             this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -249,36 +140,6 @@
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel14.Size = new System.Drawing.Size(518, 148);
             this.tableLayoutPanel14.TabIndex = 6;
-            // 
-            // cb_PosX
-            // 
-            this.cb_PosX.AutoSize = true;
-            this.tableLayoutPanel14.SetColumnSpan(this.cb_PosX, 2);
-            this.cb_PosX.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cb_PosX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_PosX.Location = new System.Drawing.Point(4, 54);
-            this.cb_PosX.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_PosX.Name = "cb_PosX";
-            this.cb_PosX.Size = new System.Drawing.Size(198, 39);
-            this.cb_PosX.TabIndex = 23;
-            this.cb_PosX.Text = "Eje X";
-            this.cb_PosX.UseVisualStyleBackColor = true;
-            this.cb_PosX.CheckedChanged += new System.EventHandler(this.cb_PosX_CheckedChanged);
-            // 
-            // cb_PosY
-            // 
-            this.cb_PosY.AutoSize = true;
-            this.tableLayoutPanel14.SetColumnSpan(this.cb_PosY, 2);
-            this.cb_PosY.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cb_PosY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_PosY.Location = new System.Drawing.Point(210, 54);
-            this.cb_PosY.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cb_PosY.Name = "cb_PosY";
-            this.cb_PosY.Size = new System.Drawing.Size(304, 39);
-            this.cb_PosY.TabIndex = 24;
-            this.cb_PosY.Text = "Eje Y";
-            this.cb_PosY.UseVisualStyleBackColor = true;
-            this.cb_PosY.CheckedChanged += new System.EventHandler(this.cb_PosY_CheckedChanged);
             // 
             // cb_PosTrajectory
             // 
@@ -308,23 +169,19 @@
             this.label9.Text = "Posición";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // sampleSelector
+            // lblFocus
             // 
-            this.sampleSelector.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sampleSelector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sampleSelector.Location = new System.Drawing.Point(210, 103);
-            this.sampleSelector.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.sampleSelector.Name = "sampleSelector";
-            this.sampleSelector.Size = new System.Drawing.Size(147, 28);
-            this.sampleSelector.TabIndex = 31;
-            this.sampleSelector.Visible = false;
+            this.lblFocus.AutoSize = true;
+            this.lblFocus.Location = new System.Drawing.Point(364, 49);
+            this.lblFocus.Name = "lblFocus";
+            this.lblFocus.Size = new System.Drawing.Size(0, 20);
+            this.lblFocus.TabIndex = 31;
             // 
             // groupBox3
             // 
             this.tableLayoutPanel13.SetColumnSpan(this.groupBox3, 2);
             this.groupBox3.Controls.Add(this.tableLayoutPanel15);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Enabled = false;
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(4, 384);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -437,7 +294,6 @@
             // 
             this.tableLayoutPanel15.SetColumnSpan(this.btnApplyTrials, 2);
             this.btnApplyTrials.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnApplyTrials.Enabled = false;
             this.btnApplyTrials.Location = new System.Drawing.Point(360, 67);
             this.btnApplyTrials.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnApplyTrials.Name = "btnApplyTrials";
@@ -498,11 +354,8 @@
             this.tableLayoutPanel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartData)).EndInit();
             this.tableLayoutPanel13.ResumeLayout(false);
-            this.tableLayoutPanel21.ResumeLayout(false);
-            this.tableLayoutPanel21.PerformLayout();
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sampleSelector)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
@@ -516,14 +369,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartData;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
-        private System.Windows.Forms.CheckBox cb_PosIdeal;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckBox ch_PosTargetZone;
-        private System.Windows.Forms.CheckBox cb_posTargets;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
-        private System.Windows.Forms.CheckBox cb_PosX;
-        private System.Windows.Forms.CheckBox cb_PosY;
         private System.Windows.Forms.CheckBox cb_PosTrajectory;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -535,9 +381,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cb_initial_flag;
         private System.Windows.Forms.ComboBox cb_final_flag;
-        private System.Windows.Forms.Label lblFocus;
         private System.Windows.Forms.ComboBox cb_error_flag;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown sampleSelector;
+        private System.Windows.Forms.Label lblFocus;
     }
 }
