@@ -17,12 +17,13 @@ namespace REVIREPanels
         public double errorInicial = 0.0f;
         public double razonInicial = 0.0f;
         public double similityDTW = 0.0f;
+        public double distanceDTW = 0.0f;
 
 
 
         public bool isCompleted = false;
 
-        private const double THRESHOLD_INIT_MOVEMENT = 0;
+        private const double THRESHOLD_INIT_MOVEMENT = 0.01;
 
         private DataRobot[] data; //Trayectoria real
         private List<float[]> ideal; //Trayectoria ideal
@@ -37,7 +38,7 @@ namespace REVIREPanels
             //Calcular distancia total
             distanceTotal = CalculateDistanceTotal();
 
-            //Calcular tiempo de reaccion
+            //Calcular tiempo de reaccion            
             reactionTime = CalculateReactionTime();
 
             //Calcular tiempo total del movimiento real
@@ -65,20 +66,33 @@ namespace REVIREPanels
 
             //Preparo los dos vectores             
             double[] t_ideal = ideal
-            .Select(p => Math.Sqrt(p[0] * p[0] + p[1] * p[1]))
+            .Select(p => (Math.Sqrt(p[0] * p[0] + p[1] * p[1]))/1000)
             .ToArray();
 
-            double[] t_real = data
-            .Select(p => Math.Sqrt(p.Xpr * p.Xpr + p.Ypr * p.Ypr))
-            .ToArray();
+            var sinRepetidos = data
+                .Where((punto, id) => id == 0 || !PuntosIguales(punto, data[id - 1]))
+                .ToList();
+
+            //Quita los inferiores al tiempo de reaccion
+            var filtradoreact = sinRepetidos.SkipWhile(p => Math.Sqrt(Math.Pow(p.Vxr, 2) + Math.Pow(p.Vyr, 2)) < THRESHOLD_INIT_MOVEMENT).ToList();
+
+            //Quita repetidos
+            double[] t_real = filtradoreact
+                .Select(p => (Math.Sqrt(p.Xpr * p.Xpr + p.Ypr * p.Ypr))/1000)
+                .ToArray();
+
+            
 
 
-            double distanciaNormalizada = Dtw.GetScore(t_ideal, t_real);
-            similityDTW = distanciaNormalizada/1000;//1.0 / (1.0 + distanciaNormalizada);
-
+            distanceDTW = Dtw.GetScore(t_real, t_ideal);
+            similityDTW = 1.0 / (1.0 + distanceDTW);
 
         }
 
+        bool PuntosIguales(DataRobot a, DataRobot b)
+        {
+            return a.Xpr == b.Xpr && a.Ypr == b.Ypr;
+        }
 
 
         /// <summary>
@@ -124,7 +138,7 @@ namespace REVIREPanels
             //Comprueba hasta que el dispositivo empieza a moverse
             bool initReaction = false;
             int i = 0;
-            while( !initReaction && i<vx.Count)
+            while( !initReaction && i < vx.Count)
             {
                 double vel = Math.Sqrt(Math.Pow(vx[i], 2) + Math.Pow(vy[i], 2));
                 if(vel > THRESHOLD_INIT_MOVEMENT)

@@ -52,7 +52,6 @@
     <Compile Include="Componentes\CustomCheckedListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Componentes\DataRobotOld.cs" />
     <Compile Include="DTW.cs" />
     <Compile Include="Estadisticas\Graficas\ChartValoration.cs" />
     <Compile Include="Estadisticas\Paneles\PanelInfoPerform.cs">
@@ -69,7 +68,6 @@
     </Compile>
     <Compile Include="Modelos\Actividad.cs" />
     <Compile Include="Componentes\BinaryDataManager.cs" />
-    <Compile Include="Componentes\EventRobot.cs" />
     <Compile Include="Estadisticas\Graficas\BarDataChart.cs" />
     <Compile Include="Estadisticas\Graficas\ChartControl.cs" />
     <Compile Include="Componentes\CheckGroupBox.cs">

@@ -50,29 +50,31 @@
             this.tableLayoutPanel1.Controls.Add(this.commonLayoutTime, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1000, 600);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1978, 1144);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 54);
+            this.panelMain.Location = new System.Drawing.Point(0, 102);
             this.panelMain.Margin = new System.Windows.Forms.Padding(0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1000, 546);
+            this.panelMain.Size = new System.Drawing.Size(1978, 1042);
             this.panelMain.TabIndex = 0;
             // 
             // linea
             // 
             this.linea.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.linea.Location = new System.Drawing.Point(3, 51);
+            this.linea.Location = new System.Drawing.Point(4, 96);
+            this.linea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.linea.Name = "linea";
-            this.linea.Size = new System.Drawing.Size(994, 1);
+            this.linea.Size = new System.Drawing.Size(1970, 1);
             this.linea.TabIndex = 1;
             this.linea.Paint += new System.Windows.Forms.PaintEventHandler(this.linea_Paint);
             // 
@@ -91,7 +93,7 @@
             this.commonLayoutTime.Name = "commonLayoutTime";
             this.commonLayoutTime.RowCount = 1;
             this.commonLayoutTime.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.commonLayoutTime.Size = new System.Drawing.Size(1000, 48);
+            this.commonLayoutTime.Size = new System.Drawing.Size(1978, 91);
             this.commonLayoutTime.TabIndex = 1;
             // 
             // mainTimer
@@ -100,10 +102,10 @@
             this.mainTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainTimer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTimer.Font = new System.Drawing.Font("Arial Narrow", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainTimer.Location = new System.Drawing.Point(905, 5);
-            this.mainTimer.Margin = new System.Windows.Forms.Padding(5);
+            this.mainTimer.Location = new System.Drawing.Point(1787, 8);
+            this.mainTimer.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.mainTimer.Name = "mainTimer";
-            this.mainTimer.Size = new System.Drawing.Size(90, 38);
+            this.mainTimer.Size = new System.Drawing.Size(183, 75);
             this.mainTimer.TabIndex = 0;
             this.mainTimer.Text = "99:99";
             this.mainTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,17 +115,19 @@
             this.lblUserName.AutoSize = true;
             this.lblUserName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(103, 0);
+            this.lblUserName.Location = new System.Drawing.Point(201, 0);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(794, 48);
+            this.lblUserName.Size = new System.Drawing.Size(1574, 91);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // btnCloseAll
             // 
-            this.btnCloseAll.Location = new System.Drawing.Point(3, 3);
+            this.btnCloseAll.Location = new System.Drawing.Point(4, 5);
+            this.btnCloseAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCloseAll.Name = "btnCloseAll";
-            this.btnCloseAll.Size = new System.Drawing.Size(94, 40);
+            this.btnCloseAll.Size = new System.Drawing.Size(141, 62);
             this.btnCloseAll.TabIndex = 2;
             this.btnCloseAll.Text = "X";
             this.btnCloseAll.UseVisualStyleBackColor = true;
@@ -137,14 +141,15 @@
             // 
             // REVIRE
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.ClientSize = new System.Drawing.Size(1978, 1144);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "REVIRE";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "REVIRE";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.commonLayoutTime.ResumeLayout(false);
             this.commonLayoutTime.PerformLayout();

@@ -79,17 +79,10 @@ namespace REVIREPanels
             dateInit = GetMinDate();
             dateEnd = DateTime.Now;
 
-            dateTimeEvolutiveInit.Value = dateInit;
-            dateTimeEvolutiveEnd.Value = dateEnd;
+          
+          
 
-            //Tab de control            
-            radioButtonDi.PerformClick(); //Seleccionar esta diaria por defecto
-
-            //Tab de control
-            tabControlStats.Appearance = TabAppearance.FlatButtons;
-            tabControlStats.ItemSize = new Size(0, 1);
-            tabControlStats.SizeMode = TabSizeMode.Fixed;
-            radioButtonDi.PerformClick(); //Seleccionar esta diaria por defecto
+          
 
             //Tab de visualizacion de graficas
             tabChartData.Appearance = TabAppearance.FlatButtons;
@@ -97,14 +90,11 @@ namespace REVIREPanels
             tabChartData.SizeMode = TabSizeMode.Fixed;
             
 
-
-            // labelfocu
-            focusLabel.Focus();
+           
 
             DoubleBuffered = true;
             
-            //Seleccionar la ultima sesion registrada
-            comboSesionDiary.SelectedIndex = comboSesionDiary.Items.Count - 1;
+           
 
             //Cargar fichero                            
             int nLoaded = BinaryDataManager.LoadDataRobotSession();
@@ -158,31 +148,9 @@ namespace REVIREPanels
         //****************************************************************************//
 
         //************************Filtrado de fechas**********************************//
-        private void dateTimeEvolutiveInit_ValueChanged(object sender, EventArgs e)
-        {
-            if (dateTimeEvolutiveInit.Value.CompareTo(dateEnd) > 0)
-            {
-                dateTimeEvolutiveInit.Value = dateInit;
-            }
-            else
-            {
-                dateInit = dateTimeEvolutiveInit.Value;
-                FilterRangeOfDates();
-            }
-        }
+        
 
-        private void dateTimeEvolutiveEnd_ValueChanged(object sender, EventArgs e)
-        {
-            if (dateTimeEvolutiveEnd.Value.CompareTo(dateInit) < 0)
-            {
-                dateTimeEvolutiveEnd.Value = dateEnd;
-            }
-            else
-            {
-                dateEnd = dateTimeEvolutiveEnd.Value;
-                FilterRangeOfDates();
-            }
-        }
+       
 
         DateTime GetMinDate()
         {
@@ -205,7 +173,7 @@ namespace REVIREPanels
             DateTime minDate = DateTime.Now;
 
             List<DateTime> list_dates = new List<DateTime>();
-            comboSesionDiary.Items.Clear();
+           
                  
 
             foreach (Actividad act in lista_actividades)
@@ -218,7 +186,7 @@ namespace REVIREPanels
                     if(!list_dates.Contains(currentTime))
                     {                        
                         list_dates.Add(currentTime);
-                        comboSesionDiary.Items.Add(currentTime.ToShortDateString());       
+                             
                         
                     }                    
                 }                
@@ -229,35 +197,12 @@ namespace REVIREPanels
         //****************************************************************************//
         
         //************************Selección de tipo de estadistica********************//
-        private void radioButtonDi_CheckedChanged(object sender, EventArgs e)
-        {
-            panelDiary.Enabled = true;
-           
-           
-
-            type = StadisticType.DIARY;
-
-            ResetStadistictSession();
-
-            tabControlStats.SelectedIndex = 0;
-        }
-
-        private void radioButtonEv_CheckedChanged(object sender, EventArgs e)
-        {
-            panelDiary.Enabled = false;
-           
-            
-
-            type = StadisticType.EVOLUTIVE;
-
-            ResetStadistictSession();
-
-            tabControlStats.SelectedIndex = 1;
-        }
+       
+        
 
         private void ResetStadistictSession()
         {
-            comboSesionDiary.SelectedIndex = -1;
+            
                      
 
             //Borrar elementos de la lista de actividades actual
@@ -275,43 +220,7 @@ namespace REVIREPanels
         //****************************************************************************//
 
         //************************Selección de la sesion******************************//
-        private void comboSesionDiary_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                int index = comboSesionDiary.SelectedIndex;
-                if (index != -1)
-                {
-                    current_lista_actividades1.Clear();
-                    string currentDateTime = comboSesionDiary.SelectedItem.ToString();
-
-                    foreach (Actividad act in lista_actividades)
-                    {
-                        //Comprueba si esta sesion esta dentro de los limites de fechas
-                        if (currentDateTime.CompareTo(act.Fecha.ToShortDateString()) == 0)
-                        {
-                            current_lista_actividades1.Add(act);
-                        }
-                    }
-
-                    //Muestra las actividades en forma de tarta
-                    CreateSessionPieData(index, current_lista_actividades1);
-
-                   
-                }
-                else
-                {
-                    sessionChart.Series.Clear();
-                    sessionChart.ResetAutoValues();
-                }
-            }
-            catch (Exception err)
-            {
-                tableLayoutViewData.Enabled = false; //Deshabilita panel de visualizacion de datos
-                MessageBox.Show("Datos de versiones antiguas: "+err.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        
 
        
 
@@ -360,12 +269,11 @@ namespace REVIREPanels
         private void CreateSessionPieData(int type, List<Actividad> listact)
         {
             //Inicializar grafica con una tarta de prueba
-            sessionChart.Series[0].Points.Clear();
-            sessionChart.Legends.Clear();
+            
             if(ctrlInfoPos!=null)
                 ctrlInfoPos.Dispose();
 
-            ctrlInfoPos = new SessionPieChart(sessionChart, 0, this.Cursor, false, true);
+            
 
             //Evento  movimiento de raton
             MouseMovement -= CursorChanging;
@@ -398,11 +306,8 @@ namespace REVIREPanels
                 {
                     //Recolectar informacion sobre las actividades para visualizarla            
                     currentAct1 = current_lista_actividades1[index];
-                    PropActividades prop = lista_propactividades.Find(x => x.Nombre == currentAct1.Nombre);                    
-
-                   
-                    //Borra las estadisticas mostradas actualmente
-                    panelInfoPosition.Reset();
+                    PropActividades prop = lista_propactividades.Find(x => x.Nombre == currentAct1.Nombre);                                       
+                    
 
                     //Rellenar asistencia
                     FillAsistenceInfo(currentAct1);
@@ -447,10 +352,7 @@ namespace REVIREPanels
                 else if(action == 0) //Deselecciona trozo
                 {
                                   
-                    panelInfoPosition.IsSelectedPie = false;
-
-                    //Borrar datos de sesion
-                    ClearChartSession();
+                    panelInfoPosition.IsSelectedPie = false;                   
                 }
             }
             catch (Exception)
@@ -534,12 +436,7 @@ namespace REVIREPanels
            
         }
 
-        private void ClearChartSession()
-        {           
-
-            //Resetea panel
-            panelInfoPosition.Reset();
-        }
+       
         #endregion
         //****************************************************************************//
         //****************************************************************************//
@@ -551,100 +448,7 @@ namespace REVIREPanels
        
         
 
-        //************************Gestion de la gráfica*******************************//
-        //****************************************************************************//
         
-
-        /// <summary>
-        /// Cambia el estilo de la grafica dependiendo de las caracteristicas a mostrar
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cb_SelectorTypeChart_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = 0;
-            switch (index)
-            {               
-                case 10: //Gráfica de la posicion antigua
-
-//                    axisXDataS1 = BinaryDataManager.sharedInstance.GetAxisData(0, 0);
- //                   axisYDataS1 = BinaryDataManager.sharedInstance.GetAxisData(1, 0);
-
-                    //Temporal, objetivos a colocar con un circulo
-                    /* Vector2[] vectort = new Vector2[9];
-
-                     vectort[0] = new Vector2(0, 0); //Punto inicial
-                     vectort[1] = new Vector2(0, 20);
-                     vectort[2] = new Vector2(15, 15);
-                     vectort[3] = new Vector2(20, 0);
-                     vectort[4] = new Vector2(15, -15);
-                     vectort[5] = new Vector2(0, -20);
-                     vectort[6] = new Vector2(-15, -15);
-                     vectort[7] = new Vector2(-20, 0);
-                     vectort[8] = new Vector2(-15, 15);*/
-                    /* vectort[9] = new Vector2(50, 50);
-                     vectort[10] = new Vector2(50, -50);
-                     vectort[11] = new Vector2(-50, 50);
-                     vectort[12] = new Vector2(-50, -50);*/
-
-                    //Configurar la vista del chart
- //                   Vector2[] vectort = BinaryDataManager.sharedInstance.listEventRobot[0].Target.ToArray();
- //                   Vector2[] vectori = BinaryDataManager.sharedInstance.listEventRobot[0].PosInit.ToArray();
-
-                    //Crear grafica de posicion del robot
-//                    poschart = new PositionChart(chartData, 3);
- //                   poschart.ConfigureChartView(vectori, vectort); //Configurar la vista de la grafica
-
-                    //Pintar elementos
-//                    poschart.DrawTargets(BinaryDataManager.sharedInstance.listEventRobot[0]); //Pintar zona objetivo                    
-
-                    //poschart.SetIdealTrajectory(vectort);
-
-                    //  poschart.SetRangeIdealTrajectory(vectort);
-                    //Pinta la grafica
- //                   poschart.Update(axisXDataS1, axisYDataS1, ch_TargetZone.Checked);
-
-
-                    break;
-               
-                
-                case 5:
-                    //Tiempo de reaccion                    
-                   // poschart = new PositionChart(chartData, 3);
-
-                    
-
-  /*                  for (int i=0; i<BinaryDataManager.sharedInstance.listEventRobot[0].Trials.Count; i++)
-                    {
-                        comboTrials.Items.Add("Trial_"+i);
-                    }
-
-                    //Configurar la vista del chart
-                    Vector2[] vectort2 = BinaryDataManager.sharedInstance.listEventRobot[0].Target.ToArray();
-                    Vector2[] vectori2 = BinaryDataManager.sharedInstance.listEventRobot[0].PosInit.ToArray();
-
-                    //Crear grafica de posicion del robot
-                    poschart = new PositionChart(chartData, 3);
-                    poschart.ConfigureChartView(vectori2, vectort2); //Configurar la vista de la grafica
-
-                    //Pintar elementos
-                    poschart.DrawTargets(BinaryDataManager.sharedInstance.listEventRobot[0]); //Pintar zona objetivo   
-*/
-                    break;
-
-            }
-
-            
-
-            //En caso de evolutiva se selecciona
-          //  if (type == StadisticType.EVOLUTIVE)
-            //    axisXDataS2 = BinaryDataManager.sharedInstance.GetAxisData((TypeData)ftypeX, 1);
-
-        }
-
-        
-        //****************************************************************************//
-        //****************************************************************************//
         
 
 
@@ -664,7 +468,7 @@ namespace REVIREPanels
                 System.Diagnostics.Process.Start(path);
             else
                 MessageBox.Show("No se ha seleccionado una actividad!","Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            focusLabel.Focus();
+            
         }
         
         //****************************************************************************//
