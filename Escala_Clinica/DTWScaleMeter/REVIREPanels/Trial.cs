@@ -19,8 +19,6 @@ namespace REVIREPanels
         public double similityDTW = 0.0f;
         public double distanceDTW = 0.0f;
 
-
-
         public bool isCompleted = false;
 
         private const double THRESHOLD_INIT_MOVEMENT = 0.01;
@@ -80,7 +78,6 @@ namespace REVIREPanels
             double[] t_real = filtradoreact
                 .Select(p => (Math.Sqrt(p.Xpr * p.Xpr + p.Ypr * p.Ypr))/1000)
                 .ToArray();
-
             
 
 
