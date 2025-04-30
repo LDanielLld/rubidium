@@ -126,7 +126,8 @@ namespace REVIREPanels.Estadisticas.Paneles
 
 
             UpdateDataTrial(contTrial);
-            
+
+            trials[contTrial].Score();
 
             lblFocus.Focus();          
         }

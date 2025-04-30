@@ -11,6 +11,8 @@ namespace REVIREPanels
     class Trial
     {
         public double distanceTotal = 0.0f;
+        public double distanceTotalIdeal = 0.0f;
+
         public double timeTotal = 0.0f;
         public double reactionTime = 0.0f;
         public double speedMax = 0.0f;
@@ -105,7 +107,17 @@ namespace REVIREPanels
             {
                 double delta =Math.Sqrt( Math.Pow(data[i + 1].Xpr - data[i].Xpr,2) + Math.Pow(data[i + 1].Ypr - data[i].Ypr, 2));
                 distance += delta;
+
+                
             }
+
+            //Distancia ideal
+            for (int i = 0; i < ideal.Count - 1; i++)
+            {
+                double deltaIdeal = Math.Sqrt(Math.Pow(ideal[i + 1][0] - ideal[i][0], 2) + Math.Pow(ideal[i + 1][1] - ideal[i][1], 2));
+                distanceTotalIdeal += deltaIdeal;
+            }
+            
             return distance;
         }
 
@@ -174,7 +186,6 @@ namespace REVIREPanels
         {
             //Registrar dataRobot seleccionados
             List<DataRobot> tmp = new List<DataRobot>();
-
             
             double total = 0.0f;
             double oldtotal = 0.0f;
@@ -356,6 +367,107 @@ namespace REVIREPanels
         float EuclideanDistance(float[] p1, DataRobot p2)
         {
             return (float)Math.Sqrt(Math.Pow(p1[0] - p2.Xpr, 2) + Math.Pow(p1[1] - p2.Ypr, 2));
+        }
+
+
+        /// <summary>
+        /// Contruye el indice clinico ponderado para medir la similitud de la trayectoria con 
+        /// respecto a la ideal
+        /// </summary>
+        /// <returns></returns>
+        public double Score()
+        {
+            //Indice de distancia total            
+            double distanceScore = Normalize(distanceTotal, distanceTotalIdeal*2, distanceTotalIdeal,0);            
+
+            //Indice del tiempo de reaccion            
+            double reactionScore = Normalize(reactionTime, 0, 1.5, 0);
+
+            //Indice del tiempo de trayectoria
+            double timeScore = Normalize(timeTotal, 10, 2.5, 0);
+
+            //Indice de velocidad maxima
+            double speedScore = Normalize(-0.5, 0, 0.30, 1);
+
+            //Indice de trayectoria completada.
+            double completedScore = isCompleted ? 1 : 0;
+
+            //Indice de error inicial
+            double errorScore = Normalize(errorInicial, 0, 0.30, 0);
+
+            //Indice de razon de movimiento inicial
+            double razonScore = Normalize(razonInicial, 0, 0.30, 1);
+
+
+            //Calcula la escla clinica ponderada
+            double clinicalScore =
+                distanceScore * 0.10 +
+                reactionScore * 0.15 +
+                timeScore * 0.15; // + 
+
+               // dtwScore * 0.35 +
+
+               //  velocityScore * 0.15 +
+               // deviationScore * 0.10 +
+
+               // successScore * 0.15;
+               
+
+            return clinicalScore;
+        }
+
+
+        /// <summary>
+        /// Normaliza las metricas obtenidas y obtiene el porcenjate de aporte de la metrica
+        /// </summary>        
+        private double Normalize(double value, double min, double max, int type)
+        {
+            double score = 0;
+            double result = (value - min) / (max - min);
+
+            //Dependiendo de los maximo y minimos invierte la ponderacion
+            if (max > min)
+            {
+                if (result >= 0 && result <= 1)
+                {
+                    if (type == 0)
+
+                        score = (1 - result);
+
+                    else
+                        score = result;
+
+                }
+                else if (result > 1)
+                {
+                    if (type == 0)
+
+                        score = 0;
+
+                    else
+                        score = 1;
+                }
+                else
+                {
+                    if (type == 0)
+
+                        score = 1;
+
+                    else
+                        score = 0;                    
+                }
+            }
+            else
+            {
+                if (result >= 0 && result <= 1)
+                    score = result;
+                else if (result > 1)
+                    score = 1;
+                else
+                    score = 0;
+            }
+
+            return score;
         }
 
     }
