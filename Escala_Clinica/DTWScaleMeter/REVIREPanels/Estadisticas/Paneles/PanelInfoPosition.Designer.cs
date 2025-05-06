@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.chartData = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
@@ -54,11 +54,16 @@
             this.label12 = new System.Windows.Forms.Label();
             this.lblRazon = new System.Windows.Forms.Label();
             this.lblFocus = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.chartSpeed = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartData = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartData)).BeginInit();
             this.tableLayoutPanel13.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartData)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel10
@@ -66,8 +71,8 @@
             this.tableLayoutPanel10.ColumnCount = 2;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel10.Controls.Add(this.chartData, 1, 0);
             this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel13, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel1, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
@@ -78,33 +83,6 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 683F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(1503, 632);
             this.tableLayoutPanel10.TabIndex = 10;
-            // 
-            // chartData
-            // 
-            this.chartData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(223)))), ((int)(((byte)(240)))));
-            this.chartData.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            this.chartData.BackSecondaryColor = System.Drawing.Color.White;
-            this.chartData.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
-            this.chartData.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            this.chartData.BorderlineWidth = 2;
-            this.chartData.BorderSkin.PageColor = System.Drawing.Color.Transparent;
-            this.chartData.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
-            chartArea2.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
-            chartArea2.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
-            chartArea2.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
-            chartArea2.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.IsSameFontSizeForAllAxes = true;
-            chartArea2.Name = "ChartArea1";
-            this.chartData.ChartAreas.Add(chartArea2);
-            this.chartData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartData.Location = new System.Drawing.Point(526, 0);
-            this.chartData.Margin = new System.Windows.Forms.Padding(0);
-            this.chartData.Name = "chartData";
-            this.chartData.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chartData.Size = new System.Drawing.Size(977, 632);
-            this.chartData.TabIndex = 7;
-            this.chartData.AxisScrollBarClicked += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ScrollBarEventArgs>(this.chartData_AxisScrollBarClicked);
             // 
             // tableLayoutPanel13
             // 
@@ -118,7 +96,7 @@
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 632F));
             this.tableLayoutPanel13.Size = new System.Drawing.Size(526, 632);
             this.tableLayoutPanel13.TabIndex = 10;
             // 
@@ -431,6 +409,76 @@
             this.lblFocus.Size = new System.Drawing.Size(0, 11);
             this.lblFocus.TabIndex = 46;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.chartSpeed, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.chartData, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(529, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(971, 626);
+            this.tableLayoutPanel1.TabIndex = 11;
+            // 
+            // chartSpeed
+            // 
+            this.chartSpeed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(223)))), ((int)(((byte)(240)))));
+            this.chartSpeed.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.chartSpeed.BackSecondaryColor = System.Drawing.Color.White;
+            this.chartSpeed.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            this.chartSpeed.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.chartSpeed.BorderlineWidth = 2;
+            this.chartSpeed.BorderSkin.PageColor = System.Drawing.Color.Transparent;
+            this.chartSpeed.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            chartArea1.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
+            chartArea1.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.IsSameFontSizeForAllAxes = true;
+            chartArea1.Name = "ChartArea1";
+            this.chartSpeed.ChartAreas.Add(chartArea1);
+            this.chartSpeed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartSpeed.Location = new System.Drawing.Point(0, 318);
+            this.chartSpeed.Margin = new System.Windows.Forms.Padding(0);
+            this.chartSpeed.Name = "chartSpeed";
+            this.chartSpeed.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartSpeed.Size = new System.Drawing.Size(971, 308);
+            this.chartSpeed.TabIndex = 8;
+            // 
+            // chartData
+            // 
+            this.chartData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(223)))), ((int)(((byte)(240)))));
+            this.chartData.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.chartData.BackSecondaryColor = System.Drawing.Color.White;
+            this.chartData.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
+            this.chartData.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.chartData.BorderlineWidth = 2;
+            this.chartData.BorderSkin.PageColor = System.Drawing.Color.Transparent;
+            this.chartData.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            chartArea2.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
+            chartArea2.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
+            chartArea2.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
+            chartArea2.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.IsSameFontSizeForAllAxes = true;
+            chartArea2.Name = "ChartArea1";
+            this.chartData.ChartAreas.Add(chartArea2);
+            this.chartData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartData.Location = new System.Drawing.Point(0, 0);
+            this.chartData.Margin = new System.Windows.Forms.Padding(0);
+            this.chartData.Name = "chartData";
+            this.chartData.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartData.Size = new System.Drawing.Size(971, 306);
+            this.chartData.TabIndex = 7;
+            this.chartData.AxisScrollBarClicked += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ScrollBarEventArgs>(this.chartData_AxisScrollBarClicked);
+            // 
             // PanelInfoPosition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -440,11 +488,13 @@
             this.Name = "PanelInfoPosition";
             this.Size = new System.Drawing.Size(1503, 632);
             this.tableLayoutPanel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartData)).EndInit();
             this.tableLayoutPanel13.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel15.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -476,5 +526,7 @@
         private System.Windows.Forms.Label lblCompleted;
         private System.Windows.Forms.Label lblTrial;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartSpeed;
     }
 }

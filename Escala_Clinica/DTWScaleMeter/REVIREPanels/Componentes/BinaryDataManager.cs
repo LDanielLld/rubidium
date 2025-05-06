@@ -245,13 +245,13 @@ namespace REVIREPanels.Componentes
                        /* double[] result3 = datarobot.Where(x => x.TaskState == 2).Select(x => x.Vxr).ToArray(); //Filtrado de taskstate
                         axisXData = result3.Where((val, index) => index == 0 || val != result3[index - 1]);//Filtrado de repetidos
                         */
-                        axisXData = datarobot.Select(x => x.Vxr);break;
+                        axisXData = datarobot.Where(x => x.TaskState == 2).Select(x => x.Vxr);break;
                     case TypeData.TD_Vyr:
 
                         /*double[] result4 = datarobot.Where(x => x.TaskState == 2).Select(x => x.Vyr).ToArray(); //Filtrado de taskstate
                         axisXData = result4.Where((val, index) => index == 0 || val != result4[index - 1]);//Filtrado de repetidos
                         */
-                        axisXData = datarobot.Select(x => x.Vyr); break;
+                        axisXData = datarobot.Where(x => x.TaskState == 2).Select(x => x.Vyr); break;
                     case TypeData.TD_Fxr:
                         axisXData = datarobot.Select(x => x.Fxr); break;
                     case TypeData.TD_Fyr:

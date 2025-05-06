@@ -54,6 +54,8 @@
     </Compile>
     <Compile Include="DTW.cs" />
     <Compile Include="Estadisticas\Graficas\ChartValoration.cs" />
+    <Compile Include="Estadisticas\Graficas\DTWChart.cs" />
+    <Compile Include="Estadisticas\Graficas\SpeedChart.cs" />
     <Compile Include="Estadisticas\Paneles\PanelInfoPerform.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,6 +68,7 @@
     <Compile Include="Estadisticas\Paneles\PanelInfoPosition.Designer.cs">
       <DependentUpon>PanelInfoPosition.cs</DependentUpon>
     </Compile>
+    <Compile Include="IRRFilter.cs" />
     <Compile Include="Modelos\Actividad.cs" />
     <Compile Include="Componentes\BinaryDataManager.cs" />
     <Compile Include="Estadisticas\Graficas\BarDataChart.cs" />

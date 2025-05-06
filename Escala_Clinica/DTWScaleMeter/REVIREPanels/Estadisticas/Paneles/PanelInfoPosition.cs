@@ -20,13 +20,24 @@ namespace REVIREPanels.Estadisticas.Paneles
         public bool IsSelectedPie { get; set; } //Flag si se ha seleccionado una actividad
 
         private PositionChart poschart; //Controlador de la grafica
+        private SpeedChart spdchart; //Controlador de la grafica de velocidad
+        private DTWChart dtwchart; //Controlador de la grafica de dtw
 
         private Trial[] trials;
 
         private double last; //Ultimo valor de la grafica
         private float distance; //Distancia maxima de movimiento objetivo   
 
-        List<List<float[]>> ideal = new List<List<float[]>>();
+        #region Condition
+        private TrialCondition[] condition = new TrialCondition[] {
+            new TrialCondition(2.5, 0.30, 75, 0.25),
+            new TrialCondition(6, 0.30, 80, 0.25),
+            new TrialCondition(6, 0.30, 80, 0.25),
+            new TrialCondition(1.5, 0.30, 60, 0.25)}; //Condiciones
+        private int[] pattern = new int[]{0, 0, 1 ,2, 3 ,3, 3, 0, 0};//Indice de condiciones
+        #endregion
+
+      //  List<List<float[]>> ideal = new List<List<float[]>>();
         public PanelInfoPosition()
         {
             InitializeComponent();
@@ -36,10 +47,12 @@ namespace REVIREPanels.Estadisticas.Paneles
             chartData.TextAntiAliasingQuality = TextAntiAliasingQuality.High;
 
 
-            ideal = DTW.GenerateIdealPath(350, 1000);
+          //  ideal = DTW.GenerateIdealPath(350, 1000);
 
             
+           //Crear condiciones para cada trial
            
+
         }
 
         public void Setting(double c, float d, float s)
@@ -54,7 +67,7 @@ namespace REVIREPanels.Estadisticas.Paneles
             for (int i = 0; i < lista.Count; i++)
             {
                 int id_ideal = i % 9;
-                Trial cTrial = new Trial(lista[i], ideal[id_ideal], 10f, 350f);
+                Trial cTrial = new Trial(lista[i], condition[pattern[id_ideal]], 10f, 350f, id_ideal);
                 trials[i] = cTrial;
             }
         }
@@ -101,32 +114,46 @@ namespace REVIREPanels.Estadisticas.Paneles
                 contTrialIdeal = 0;
 
 
-            poschart = new PositionChart(chartData, 3);
+            //Configura grafica de datos para la visualizacion de posicion                
+            poschart = new PositionChart(chartData);
             poschart.RemoveFeature("SeriesIdeal");
             poschart.RemoveFeature("SeriesPos");            
-            poschart.ClearTargets();
-           
+            poschart.ConfigureChartView(new Vector2(0, -53), distance); //Establece la vista de la grafica   
+
+            //Visualiza datos de posicion
+            poschart.Update(trials[contTrialIdeal].GetIdealPath(), trials[contTrialIdeal].GetIdealPath().Count); //Ideal
+            poschart.Update(BinaryDataManager.GetAxisDataTrial(TypeData.TD_Xpr, 0, contTrial),
+              BinaryDataManager.GetAxisDataTrial(TypeData.TD_Ypr, 0, contTrial),
+              1000); //Real
+
+            //Configura grafica de datos para la visualizacion de la velocidad                
+            /*spdchart = new SpeedChart(chartSpeed);
+            spdchart.RemoveFeature("SeriesPos");
+            //spdchart.ConfigureChartView(new Vector2(0, -53), distance); //Establece la vista de la grafica   
 
 
-                //Configura grafica de datos para la visualizacion de posicion
-                
-                poschart.ConfigureChartView(new Vector2(0, -53), distance); //Establece la vista de la grafica    
-
-                
-                poschart.Update(ideal[contTrialIdeal], false, 1000);
-
-                //Actualiza trial
-                poschart.Update(BinaryDataManager.GetAxisDataTrial(TypeData.TD_Xpr, 0, contTrial),
-                  BinaryDataManager.GetAxisDataTrial(TypeData.TD_Ypr, 0, contTrial),
-                  false, 1000);
+            //Visualiza datos de velocidad            
+            spdchart.Update(
+                BinaryDataManager.GetAxisDataTrial(TypeData.TD_Vxr, 0, contTrial),
+                BinaryDataManager.GetAxisDataTrial(TypeData.TD_Vyr, 0, contTrial),
+                BinaryDataManager.GetAxisDataTrial(TypeData.TD_TimeStamp, 0, contTrial), 1000); //Real*/
 
 
-            /* poschart.AddCircleTargets(BinaryDataManager.sharedInstance.GetAxisData(TypeData.TD_XprF, 0),
-                 BinaryDataManager.sharedInstance.GetAxisData(TypeData.TD_YprF, 0));*/
+            //Configura grafica de datos para la visualizacion de la velocidad                
+            dtwchart = new DTWChart(chartSpeed);
+            dtwchart.RemoveFeature("SeriesReal");
+            dtwchart.RemoveFeature("SeriesIdeal");
+            //spdchart.ConfigureChartView(new Vector2(0, -53), distance); //Establece la vista de la grafica   
 
 
+            //Visualiza datos de velocidad            
+            dtwchart.Update(
+                trials[contTrialIdeal].GetDTWReal(),
+                trials[contTrialIdeal].GetDTWIdeal());
+
+
+            //Actualiza datos del trial
             UpdateDataTrial(contTrial);
-
             trials[contTrial].Score();
 
             lblFocus.Focus();          

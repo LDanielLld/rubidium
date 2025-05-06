@@ -56,25 +56,25 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1978, 1144);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1978, 1444);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 102);
+            this.panelMain.Location = new System.Drawing.Point(0, 129);
             this.panelMain.Margin = new System.Windows.Forms.Padding(0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1978, 1042);
+            this.panelMain.Size = new System.Drawing.Size(1978, 1315);
             this.panelMain.TabIndex = 0;
             // 
             // linea
             // 
             this.linea.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.linea.Location = new System.Drawing.Point(4, 96);
+            this.linea.Location = new System.Drawing.Point(4, 120);
             this.linea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.linea.Name = "linea";
-            this.linea.Size = new System.Drawing.Size(1970, 1);
+            this.linea.Size = new System.Drawing.Size(1970, 4);
             this.linea.TabIndex = 1;
             this.linea.Paint += new System.Windows.Forms.PaintEventHandler(this.linea_Paint);
             // 
@@ -93,7 +93,7 @@
             this.commonLayoutTime.Name = "commonLayoutTime";
             this.commonLayoutTime.RowCount = 1;
             this.commonLayoutTime.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.commonLayoutTime.Size = new System.Drawing.Size(1978, 91);
+            this.commonLayoutTime.Size = new System.Drawing.Size(1978, 115);
             this.commonLayoutTime.TabIndex = 1;
             // 
             // mainTimer
@@ -103,9 +103,9 @@
             this.mainTimer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTimer.Font = new System.Drawing.Font("Arial Narrow", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainTimer.Location = new System.Drawing.Point(1787, 8);
-            this.mainTimer.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.mainTimer.Margin = new System.Windows.Forms.Padding(8);
             this.mainTimer.Name = "mainTimer";
-            this.mainTimer.Size = new System.Drawing.Size(183, 75);
+            this.mainTimer.Size = new System.Drawing.Size(183, 99);
             this.mainTimer.TabIndex = 0;
             this.mainTimer.Text = "99:99";
             this.mainTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -118,7 +118,7 @@
             this.lblUserName.Location = new System.Drawing.Point(201, 0);
             this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(1574, 91);
+            this.lblUserName.Size = new System.Drawing.Size(1574, 115);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1978, 1144);
+            this.ClientSize = new System.Drawing.Size(1978, 1444);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
