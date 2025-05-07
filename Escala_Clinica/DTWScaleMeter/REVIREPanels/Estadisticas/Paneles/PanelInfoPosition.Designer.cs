@@ -57,6 +57,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.chartSpeed = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartData = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblEscala = new System.Windows.Forms.Label();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -124,6 +125,7 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel15.Controls.Add(this.lblEscala, 4, 17);
             this.tableLayoutPanel15.Controls.Add(this.labele85, 1, 3);
             this.tableLayoutPanel15.Controls.Add(this.lblCompleted, 2, 3);
             this.tableLayoutPanel15.Controls.Add(this.lblTrial, 2, 1);
@@ -479,6 +481,19 @@
             this.chartData.TabIndex = 7;
             this.chartData.AxisScrollBarClicked += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ScrollBarEventArgs>(this.chartData_AxisScrollBarClicked);
             // 
+            // lblEscala
+            // 
+            this.lblEscala.AutoSize = true;
+            this.lblEscala.BackColor = System.Drawing.SystemColors.Info;
+            this.lblEscala.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEscala.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEscala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblEscala.Location = new System.Drawing.Point(410, 523);
+            this.lblEscala.Name = "lblEscala";
+            this.lblEscala.Size = new System.Drawing.Size(70, 47);
+            this.lblEscala.TabIndex = 51;
+            this.lblEscala.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // PanelInfoPosition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -528,5 +543,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSpeed;
+        private System.Windows.Forms.Label lblEscala;
     }
 }

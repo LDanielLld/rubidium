@@ -8,8 +8,15 @@ using System.Threading.Tasks;
 
 namespace REVIREPanels
 {
+    /// <summary>
+    /// Clase encargada de gestionar cada una de las trayectorias y calcular todos los parametros
+    /// que definen una escala clinica a partir de una ponderacion de los valores
+    /// </summary>
     public class Trial
     {
+        //*********************************************Variables**********************************************//
+        //****************************************************************************************************//
+        #region [Public Variables] Parametros de la escala
         public double distanceTotal = 0.0f;
         public double timeTotal = 0.0f;
         public double reactionTime = 0.0f;
@@ -18,26 +25,38 @@ namespace REVIREPanels
         public double razonInicial = 0.0f;
         public double similityDTW = 0.0f;
         public double distanceDTW = 0.0f;
-
         public bool isCompleted = false;
+        #endregion
 
+        #region [Public Variables] Parametros ideales
         public double distanceTotalIdeal = 0.0f;
         public double speedIdeal = 0.0f;
         public double timeIdeal = 0.0f;
         public double errorIdeal = 0.0f;
         public double razonIdeal = 0.0f;
+        #endregion
 
-
-
-        private double THRESHOLD_INIT_MOVEMENT = 0.0;
-
+        #region [private Variables] Almacenamiento de datos
         private DataRobot[] data; //Trayectoria real
         private List<float[]> ideal; //Trayectoria ideal
 
+        private double[] t_ideal;
+        private double[] t_real;
+        #endregion
 
-        private static float[] center = new float[2] { 0.0f, -530.0f };
+        #region [Private Variables] Condicionantes de la escala
+        private double THRESHOLD_INIT_MOVEMENT = 0.0;
+        private float[] center = new float[2] { 0.0f, -530.0f };
+        private float[] ponderations = new float[] { 0.20f, 0.10f, 0.20f, 0.05f, 0.15f, 0.10f, 0.05f, 0.15f};
+        #endregion
+        //****************************************************************************************************//
+        //****************************************************************************************************//
 
 
+
+        //*****************************************Creacion de trials*****************************************//
+        //****************************************************************************************************//
+        #region [public Functions] Constructor y gestor del trial
         public Trial(DataRobot[] dataIn, TrialCondition condition, float time, float ampl, int id)
         {
             //Copia los datos recibidos
@@ -80,60 +99,35 @@ namespace REVIREPanels
             //Ausencia final de movimiento. No ha alcanzado el final de la trayectorio
             if (timeTotal + reactionTime < time)
                 isCompleted = true;
-
-            //Calcula error inicial de movimiento
-            //  CalculateErrorInitial(out errorInicial, out razonInicial);
-
-
-            //Calcular DTW, distancia y similitud
-            /* var dtwMatrix = ComputeDTW(ideal, data);
-             float dtwDistance = dtwMatrix[ideal.Count - 1, data.Length - 1];
-
-             //Cuanto más cercana a 1, más parecidas son las trayectorias.
-             float maxLength = Math.Max(ideal.Count, data.Length);
-             float similarity = 1f / (1f + dtwDistance / maxLength); // Da un valor entre 0 y 1
-             */
-
-            //Preparo los dos vectores                 
-            //Crea ideal
-            ideal = GenerateIdealPath(id, ampl, data.Length - (start + end));
-
-            t_ideal = ideal.Select(p => Math.Sqrt(p[0] * p[0] + p[1] * p[1])).ToArray();
-            t_real = data.Skip(start + end).Select(p => Math.Sqrt(p.Xpr * p.Xpr + p.Ypr * p.Ypr)).ToArray();
-
-           /* var sinRepetidos = data
-                .Where((punto, idp) => idp == 0 || !PuntosIguales(punto, data[idp - 1]))
-                .ToList();*/
-
-            //Quita los inferiores al tiempo de reaccion
-           // var filtradoreact = sinRepetidos.SkipWhile(p => Math.Sqrt(Math.Pow(p.Vxr, 2) + Math.Pow(p.Vyr, 2)) < THRESHOLD_INIT_MOVEMENT).ToList();
-
-            //Quita repetidos
-           /* double[] t_real = filtradoreact
-                .Select(p => (Math.Sqrt(p.Xpr * p.Xpr + p.Ypr * p.Ypr))/1000)
-                .ToArray();*/
             
 
+            //Señal real de movimiento
+            t_real = data.Skip(start + end).Select(p => Math.Sqrt(p.Xpr * p.Xpr + p.Ypr * p.Ypr)).ToArray(); //Distancias euclideas
+            t_real = t_real.Where((punto, idp) => idp == 0 || punto != t_real[idp - 1]).ToArray(); //Filtrado de repetidos
 
-            distanceDTW = Dtw.GetScore(t_ideal, t_real)/1000;
+            //Genera uno ideal
+            ideal = GenerateIdealPath(id, ampl, t_real.Length);
+            t_ideal = ideal.Select(p => Math.Sqrt(p[0] * p[0] + p[1] * p[1])).ToArray();
+
+
+            //Calcula la componente DTW
+            distanceDTW = Dtw.GetScore(t_ideal, t_real) / 1000;
             similityDTW = 1.0 / (1.0 + distanceDTW);
 
+
+            //Calcula la distancia ideal total
+            distanceTotalIdeal = CalculateDistanceTotalIdeal();
+
         }
+        #endregion
+        //****************************************************************************************************//
+        //****************************************************************************************************//
 
-        double[] t_ideal;// = ideal.Select(p => Math.Sqrt(p[0] * p[0] + p[1] * p[1])).ToArray();
-        double[] t_real;
 
-        bool PuntosIguales(DataRobot a, DataRobot b)
-        {
-            return a.Xpr == b.Xpr && a.Ypr == b.Ypr;
-        }
 
-        public double[] GetDTWReal() => t_real;
-        public double[] GetDTWIdeal() => t_ideal;
-
-        public List<float[]> GetIdealPath() => ideal;
-
-        #region Calculo de parametros caracteristicos
+        //*************************************Parametros Caracteristicos*************************************//
+        //****************************************************************************************************//
+        #region [Private Functions] Calculo de parametros caracteristicos
         /// <summary>
         /// Calcula la distancia total del trial
         /// </summary>
@@ -147,17 +141,26 @@ namespace REVIREPanels
             {
                 double delta =Math.Sqrt(Math.Pow(data[i + 1].Xpr - data[i].Xpr,2) + Math.Pow(data[i + 1].Ypr - data[i].Ypr, 2));
                 distance += delta;                
-            }            
+            }      
+            return distance;
+        }
 
-            //Distancia ideal
+
+        /// <summary>
+        /// Calcula la distancia total ideal del trial
+        /// </summary>        
+        private double CalculateDistanceTotalIdeal()
+        {
+            double distance = 0.0f;
+
+            //Extrae los valores del ejeX y del ejeY, y calcula el incremento            
             for (int i = 0; i < ideal.Count - 1; i++)
             {
                 double deltaIdeal = Math.Sqrt(Math.Pow(ideal[i + 1][0] - ideal[i][0], 2) + Math.Pow(ideal[i + 1][1] - ideal[i][1], 2));
-                distanceTotalIdeal += deltaIdeal;
+                distance += deltaIdeal;
             }
-            
             return distance;
-        }
+        }        
 
 
         /// <summary>
@@ -326,90 +329,91 @@ namespace REVIREPanels
             double angle = Math.Acos(escalar / (moduleIdeal * moduleReal)) * (180.0 / Math.PI);
             return angle;
         }
+        #endregion
+        //****************************************************************************************************//
+        //****************************************************************************************************//
 
 
+
+        //****************************************Trayectorias ideales****************************************//
+        //****************************************************************************************************//
+        #region [Private Functions] Calculo de trayectorias ideales
         /// <summary>
-        /// Calcula el error en la direccion del movimiento inicial, desviacion en angulo entre la
-        /// linea recta desde el punto central hasta la posicion del brazo despues de la fase
-        /// de movimiento
+        /// Metodo encargado de generar las trayectorias ideales a partir de la configuracion
+        /// de los path clinicos realizados en el juego ClinicalScaleMeter
         /// </summary>
         /// <returns></returns>
-        private void CalculateErrorInitial(out double angle, out double razon)
+        private List<float[]> GenerateIdealPath(int id, float ampl, int sample)
         {
-            //Registrar dataRobot seleccionados
-            List<DataRobot> tmp = new List<DataRobot>();
-            
-            double total = 0.0f;
-            double oldtotal = 0.0f;
-            int index = -1; //Indice registrado
+            //Cada camino es diferente, por lo que se generaran a partir de una serie de ecuacion de recta y circulares
+            List<float[]> list = new List<float[]>();
 
-            //Calcula pendientes
-            double[] pendientes = new double[data.Length - 1];
-            bool isCalculate = false;
+            //El primer camino es una recta. (izquierda a derecha)
+            if (id == 0)
+                list = GetArrayRectX(-ampl / 2, ampl / 2, sample);
+            else if (id == 1)//Segundo camino (recta de derecha a izquierda)                           
+                list = GetArrayRectX(ampl / 2, -ampl / 2, sample);  //Se junta y se añade            
+            else if (id == 2) //Tercera trayectoria circular                            
+                list = GetArrayCircle(ampl / 2, 225.0f, 0.0f, sample);
+            else if (id == 3) //Cuarta trayectoria circular
+                list = GetArrayCircle(ampl / 2, 315.0f, 270f + 315f, sample);
+            else if (id == 4) //Quinta trayectoria recta (bajo a arriba)
+                list = GetArrayRectY(0, ampl / 2, sample);
+            else if (id == 5) //Sexta trayectoria recta (arriba a abajo)
+                list = GetArrayRectY(ampl / 2, 0, sample);
+            else if (id == 6) //Septima trayectoria recta (arriba a abajo)
+                list = GetArrayRectY(0, -ampl / 2, sample);
+            else if (id == 7) //Octava trayectoria recta (abajo a arriba)
+                list = GetArrayRectY(-ampl / 2, ampl / 2, sample);
+            else if (id == 8)//Novena trayectoria recta (arriba a abjo)
+                list = GetArrayRectY(ampl / 2, -ampl / 2, sample);
 
-            int i = 0;
-            while (!isCalculate && i<data.Length - 1)
-            {
-                double dy = data[i + 1].Ypr - data[i].Ypr;
-                double dx = data[i + 1].Xpr - data[i].Xpr;
+            return list;
+        }
 
+        private List<float[]> GetArrayRectX(float init, float end, int sample)
+        {
+            float incr = (end - init) / (sample - 1);
+            float[] x = Enumerable.Range(0, sample).Select(i => init + i * incr).ToArray();
+            float[] y = Enumerable.Repeat(center[1], sample).ToArray();
 
-                if (dx != 0)
-                {
-                    double m = dy / dx;
-                    pendientes[i] = m;
-                    tmp.Add(data[i]);
+            List<float[]> tmpList = x.Zip(y, (a, b) => new float[] { a, b }).ToList(); //Se junta y se añade
+            return tmpList;
+        }
 
-                    total += m;
+        private List<float[]> GetArrayRectY(float init, float end, int sample)
+        {
+            float incr = (end - init) / (sample - 1);
+            float[] x = Enumerable.Repeat(center[0], sample).ToArray();
+            float[] y = Enumerable.Range(0, sample).Select(i => center[1] + (init + i * incr)).ToArray();
 
-                    if (Math.Abs(total) < Math.Abs(oldtotal))
-                    {
-                        isCalculate = true;
-                        index = i;
-                    }
-                    
-                    oldtotal = total;                    
-                }
+            List<float[]> tmpList = x.Zip(y, (a, b) => new float[] { a, b }).ToList(); //Se junta y se añade
+            return tmpList;
+        }
 
-                i++;
-            }
+        /// <summary>
+        /// Genera una trayectoria circular añadiendo angulo inicial y final
+        /// </summary>                
+        private List<float[]> GetArrayCircle(float radio, float init, float end, int sample)
+        {
+            float incr = ((end - init) / (sample - 1)) * ((float)(Math.PI) / 180.0f);
+            float initAngle = init * (float)Math.PI / 180.0f;
 
+            float[] x = Enumerable.Range(0, sample).Select(i => center[0] + radio * (float)Math.Cos(initAngle + i * incr)).ToArray();
+            float[] y = Enumerable.Range(0, sample).Select(i => center[1] + radio * (float)Math.Sin(initAngle + i * incr)).ToArray();
 
-            //Regista dos vectores A(x,y) - real  y B(x,y) - ideal
-            double Ax = data[index].Xpr - data.First().Xpr;
-            double Ay = data[index].Ypr - data.First().Ypr;
-
-            double Bx = ideal.Last()[0] - ideal.First()[0];
-            double By = ideal.Last()[1] - ideal.First()[1];
-
-
-            //Calcula el producto escalar para determinar el angulo entre la ideal y la calculada
-            double escalar = Ax * Bx + Ay * By;
-            double moduleReal = Math.Sqrt(Math.Pow(Ax, 2) + Math.Pow(Ay, 2));
-            double moduleIdeal = Math.Sqrt(Math.Pow(Bx, 2) + Math.Pow(By, 2));
-
-
-            //Extraer angulo
-            angle = Math.Acos(escalar/(moduleIdeal * moduleReal)) * (180.0 / Math.PI);
-
-
-            //Extraer razon de movimiento inicial
-
-            //Calcula distancia inicial desde el principio hasta el indice calculado
-            double distance = 0.0f;
-            for (int j = 0; j < index; j++)
-            {
-                double delta = Math.Sqrt(Math.Pow(data[j + 1].Xpr - data[j].Xpr, 2) + Math.Pow(data[j + 1].Ypr - data[j].Ypr, 2));
-                distance += delta;
-            }           
-
-            razon = distance/distanceTotal;
-            
+            List<float[]> tmpList = x.Zip(y, (a, b) => new float[] { a, b }).ToList(); //Se junta y se añade
+            return tmpList;
         }
         #endregion
+        //****************************************************************************************************//
+        //****************************************************************************************************//
 
 
 
+        //*************************************Arrays de datos registrados************************************//
+        //****************************************************************************************************//
+        #region [Private Functions] Extraccion de array de datos
         private static IEnumerable<double> SelectAxisData(TypeData type, DataRobot[] datarobot)
         {
 
@@ -424,23 +428,13 @@ namespace REVIREPanels
                         axisXData = datarobot.Select(x => x.TimeStamp); break;
                     case TypeData.TD_Xpr: //Eje X filtrado a taskstate
                         axisXData = datarobot.Select(x => x.Xpr).ToList(); //Filtrado de taskstate
-                       // axisXData = result.Where((val, index) => index == 0 || val != result[index - 1]);//Filtrado de repetidos
-
                         break;
                     case TypeData.TD_Ypr:
-                        axisXData = datarobot.Select(x => x.Ypr).ToList(); //Filtrado de taskstate
-                        //axisXData = result2.Where((val, index) => index == 0 || val != result2[index - 1]);//Filtrado de repetidos
+                        axisXData = datarobot.Select(x => x.Ypr).ToList(); //Filtrado de taskstate                        
                         break;
                     case TypeData.TD_Vxr:
-                        /* double[] result3 = datarobot.Where(x => x.TaskState == 2).Select(x => x.Vxr).ToArray(); //Filtrado de taskstate
-                         axisXData = result3.Where((val, index) => index == 0 || val != result3[index - 1]);//Filtrado de repetidos
-                         */
                         axisXData = datarobot.Select(x => x.Vxr); break;
                     case TypeData.TD_Vyr:
-
-                        /*double[] result4 = datarobot.Where(x => x.TaskState == 2).Select(x => x.Vyr).ToArray(); //Filtrado de taskstate
-                        axisXData = result4.Where((val, index) => index == 0 || val != result4[index - 1]);//Filtrado de repetidos
-                        */
                         axisXData = datarobot.Select(x => x.Vyr); break;
                     case TypeData.TD_Fxr:
                         axisXData = datarobot.Select(x => x.Fxr); break;
@@ -487,11 +481,22 @@ namespace REVIREPanels
                
             }
             return axisXData;
-        }
+        }        
+
+        public double[] GetDTWReal() => t_real;
+
+        public double[] GetDTWIdeal() => t_ideal;
+
+        public List<float[]> GetIdealPath() => ideal;
+        #endregion
+        //****************************************************************************************************//
+        //****************************************************************************************************//
 
 
-        
 
+        //*******************************************Escala clinicna******************************************//
+        //****************************************************************************************************//
+        #region [Private Functions] Calculo la ponderacion de la escala clinica
         /// <summary>
         /// Contruye el indice clinico ponderado para medir la similitud de la trayectoria con 
         /// respecto a la ideal
@@ -525,15 +530,14 @@ namespace REVIREPanels
 
             //Calcula la escla clinica ponderada
             double clinicalScore =
-                distanceScore * 0.20 +
-                reactionScore * 0.10 +
-                timeScore * 0.20 +
-                speedScore * 0.05 +
-                completedScore * 0.15 +
-                errorScore * 0.10 +
-                razonScore * 0.05 +
-                dtwScore * 0.15;              
-               
+                distanceScore * ponderations[0] +
+                reactionScore * ponderations[1] +
+                timeScore     * ponderations[2] +
+                speedScore    * ponderations[3] +
+                completedScore* ponderations[4] +
+                errorScore    * ponderations[5] +
+                razonScore    * ponderations[6] +
+                dtwScore      * ponderations[7];  
 
             return clinicalScore;
         }
@@ -591,102 +595,15 @@ namespace REVIREPanels
 
             return score;
         }
-
-
-        #region Calculo de trayectorias ideales
-        /// <summary>
-        /// Metodo encargado de generar las trayectorias ideales a partir de la configuracion
-        /// de los path clinicos realizados en el juego ClinicalScaleMeter
-        /// </summary>
-        /// <returns></returns>
-        public List<float[]> GenerateIdealPath(int id, float ampl, int sample)
-        {
-            List<float[]> list = new List<float[]>();
-            //Cada camino es diferente, por lo que se generaran a partir de una serie de ecuacion de recta y circulares
-            float incr = ampl / sample; //Incremento
-
-            //El primer camino es una recta. (izquierda a derecha)
-            if (id == 0)
-            {
-                float[] x = Enumerable.Range(0, sample).Select(i => -ampl / 2 + i * incr).ToArray();
-                float[] y = Enumerable.Repeat(center[1], sample).ToArray();
-
-                list = GetArrayRectX(-ampl / 2, ampl / 2, sample);
-                
-               /* List<double> time = SelectAxisData(TypeData.TD_TimeStamp, data).ToList();
-                List<double> x2 = SelectAxisData(TypeData.TD_Xpr, data).ToList();
-
-                int cambioIndex = x2
-                    .Select((v, i) => new { Value = v, Index = i })
-                    .Where(x => x.Index < x2.Count - 1)
-                    .FirstOrDefault(x => x.Value * x2[x.Index + 1] < 0)
-                    ?.Index ?? -1;
-                */
-
-            }
-            else if (id == 1)//Segundo camino (recta de derecha a izquierda)
-            {
-                float[] x = Enumerable.Range(0, sample).Select(i => ampl / 2 - i * incr).ToArray();
-                float[] y = Enumerable.Repeat(center[1], sample).ToArray();
-
-                list = GetArrayRectX(ampl / 2, -ampl / 2, sample);  //Se junta y se añade
-            }
-            else if (id == 2) //Tercera trayectoria circular                            
-                list = GetArrayCircle(ampl / 2, 225.0f, 0.0f, sample);
-            else if (id == 3) //Cuarta trayectoria circular
-                list = GetArrayCircle(ampl / 2, 315.0f, 270f + 315f, sample);            
-            else if(id == 4) //Quinta trayectoria recta (bajo a arriba)
-                list = GetArrayRectY(0, ampl / 2, sample);
-            else if (id == 5) //Sexta trayectoria recta (arriba a abajo)
-                list = GetArrayRectY(ampl / 2, 0, sample);
-            else if (id == 6) //Septima trayectoria recta (arriba a abajo)
-                list = GetArrayRectY(0, -ampl / 2, sample);
-            else if (id == 7) //Octava trayectoria recta (abajo a arriba)
-                list = GetArrayRectY(-ampl / 2, ampl / 2, sample);
-            else if (id == 8)//Novena trayectoria recta (arriba a abjo)
-                list = GetArrayRectY(ampl / 2, -ampl / 2, sample);            
-
-            return list;
-        }
-
-        private List<float[]> GetArrayRectX(float init, float end, int sample)
-        {
-            float incr = (end - init) / sample;
-            float[] x = Enumerable.Range(0, sample).Select(i => init + i * incr).ToArray();
-            float[] y = Enumerable.Repeat(center[1], sample).ToArray();
-
-            List<float[]> tmpList = x.Zip(y, (a, b) => new float[] { a, b }).ToList(); //Se junta y se añade
-            return tmpList;
-        }
-
-        private List<float[]> GetArrayRectY(float init, float end, int sample)
-        {
-            float incr = (end - init) / sample;
-            float[] x = Enumerable.Repeat(center[0], sample).ToArray();
-            float[] y = Enumerable.Range(0, sample).Select(i => center[1] + (init + i * incr)).ToArray();
-
-            List<float[]> tmpList = x.Zip(y, (a, b) => new float[] { a, b }).ToList(); //Se junta y se añade
-            return tmpList;
-        }
-
-        /// <summary>
-        /// Genera una trayectoria circular añadiendo angulo inicial y final
-        /// </summary>                
-        private List<float[]> GetArrayCircle(float radio, float init, float end, int sample)
-        {
-            float incr = ((end - init) / sample) * ((float)(Math.PI) / 180.0f);
-            float initAngle = init * (float)Math.PI / 180.0f;
-
-            float[] x = Enumerable.Range(0, sample).Select(i => center[0] + radio * (float)Math.Cos(initAngle + i * incr)).ToArray();
-            float[] y = Enumerable.Range(0, sample).Select(i => center[1] + radio * (float)Math.Sin(initAngle + i * incr)).ToArray();
-
-            List<float[]> tmpList = x.Zip(y, (a, b) => new float[] { a, b }).ToList(); //Se junta y se añade
-            return tmpList;
-        }
         #endregion
+        //****************************************************************************************************//
+        //****************************************************************************************************//
     }
 
-
+    /// <summary>
+    /// Estructura contenedora de las condiciones para completar
+    /// correctamente un trial
+    /// </summary>
     public struct TrialCondition
     {        
         public double time;

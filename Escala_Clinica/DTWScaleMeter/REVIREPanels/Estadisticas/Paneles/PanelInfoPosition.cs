@@ -60,7 +60,8 @@ namespace REVIREPanels.Estadisticas.Paneles
             last = c;
             distance = d;
 
-
+            double valor = 0;
+            
             //Calcular distancias totales
             trials = new Trial[BinaryDataManager.listTrialDataRobot[0].Count];
             List<DataRobot[]> lista = BinaryDataManager.listTrialDataRobot[0];
@@ -69,7 +70,11 @@ namespace REVIREPanels.Estadisticas.Paneles
                 int id_ideal = i % 9;
                 Trial cTrial = new Trial(lista[i], condition[pattern[id_ideal]], 10f, 350f, id_ideal);
                 trials[i] = cTrial;
+
+                valor += cTrial.Score();
             }
+
+            lblEscala.Text = (valor * 100 / 18).ToString("0.00");
         }
 
         private void chartData_AxisScrollBarClicked(object sender, ScrollBarEventArgs e)
