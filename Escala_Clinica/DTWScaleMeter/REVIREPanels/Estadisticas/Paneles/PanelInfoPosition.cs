@@ -55,13 +55,20 @@ namespace REVIREPanels.Estadisticas.Paneles
 
         }
 
+        private float[] ponderacion = new float[] {
+            0.075f, 0.075f, 0.025f, 0.025f, 0.05f, 0.05f, 0.05f, 0.075f, 0.075f,  0.075f, 0.075f, 0.025f, 0.025f, 0.05f, 0.05f, 0.05f, 0.075f, 0.075f};
+
+        private float[] ponderacion2 = new float[] {
+            0.1f, 0.1f, 0.0125f, 0.0125f, 0.025f, 0.025f, 0.025f, 0.1f, 0.1f, 0.1f, 0.1f, 0.0125f, 0.0125f, 0.025f, 0.025f, 0.025f, 0.1f, 0.1f};
+
         public void Setting(double c, float d, float s)
         {
             last = c;
             distance = d;
 
             double valor = 0;
-            
+            double valor2 = 0;
+
             //Calcular distancias totales
             trials = new Trial[BinaryDataManager.listTrialDataRobot[0].Count];
             List<DataRobot[]> lista = BinaryDataManager.listTrialDataRobot[0];
@@ -71,10 +78,13 @@ namespace REVIREPanels.Estadisticas.Paneles
                 Trial cTrial = new Trial(lista[i], condition[pattern[id_ideal]], 10f, 350f, id_ideal);
                 trials[i] = cTrial;
 
-                valor += cTrial.Score();
+                valor += cTrial.Score() * ponderacion2[i];
+                valor2 += cTrial.Score(); 
             }
 
-            lblEscala.Text = (valor * 100 / 18).ToString("0.00");
+            //lblEscala.Text = (valor2 * 100/18).ToString("0.00");
+            lblEscala.Text = (valor * 100).ToString("0.00"); //
+
         }
 
         private void chartData_AxisScrollBarClicked(object sender, ScrollBarEventArgs e)
@@ -178,6 +188,7 @@ namespace REVIREPanels.Estadisticas.Paneles
             lblError.Text = trial.errorInicial.ToString("0.0000");
             lblRazon.Text = trial.razonInicial.ToString("0.0000");
             lblDTW.Text = trial.distanceDTW.ToString("0.0000")+"/"+trial.similityDTW.ToString("0.0000");
+            lblpercSuccess.Text = trial.percDistance.ToString("0.00");
         }
         #endregion
         //****************************************************************************//

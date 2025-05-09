@@ -264,7 +264,7 @@ namespace REVIREPanels.Graficas
         }
 
 
-        public void Update(List<float[]> values, float samples)
+        public void Update(List<double[]> values, float samples)
         {           
             //Actualizar grafica comprobando si se tiene que señalar las zonas objetivo
             Series serie = new Series("SeriesIdeal");

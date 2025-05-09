@@ -18,6 +18,7 @@ namespace REVIREPanels
         //****************************************************************************************************//
         #region [Public Variables] Parametros de la escala
         public double distanceTotal = 0.0f;
+        public double percDistance = 0.0f;
         public double timeTotal = 0.0f;
         public double reactionTime = 0.0f;
         public double speedMax = 0.0f;
@@ -30,15 +31,15 @@ namespace REVIREPanels
 
         #region [Public Variables] Parametros ideales
         public double distanceTotalIdeal = 0.0f;
-        public double speedIdeal = 0.0f;
-        public double timeIdeal = 0.0f;
-        public double errorIdeal = 0.0f;
-        public double razonIdeal = 0.0f;
+        public double[] speedIdeal = new double[2];
+        public double[] timeIdeal = new double[2];
+        public double[] errorIdeal = new double[2];
+        public double[] razonIdeal = new double[2];
         #endregion
 
         #region [private Variables] Almacenamiento de datos
         private DataRobot[] data; //Trayectoria real
-        private List<float[]> ideal; //Trayectoria ideal
+        private List<double[]> ideal; //Trayectoria ideal
 
         private double[] t_ideal;
         private double[] t_real;
@@ -46,8 +47,9 @@ namespace REVIREPanels
 
         #region [Private Variables] Condicionantes de la escala
         private double THRESHOLD_INIT_MOVEMENT = 0.0;
-        private float[] center = new float[2] { 0.0f, -530.0f };
-        private float[] ponderations = new float[] { 0.20f, 0.10f, 0.20f, 0.05f, 0.15f, 0.10f, 0.05f, 0.15f};
+        private double[] center = new double[2] { 0.0f, -530.0f };
+        private double[] game_points = new double[2] { -4.44f, 4.44f };
+        private double[] ponderations = new double[] { 0.20f, 0.10f, 0.20f, 0.05f, 0.15f, 0.10f, 0.05f, 0.15f};
         #endregion
         //****************************************************************************************************//
         //****************************************************************************************************//
@@ -57,7 +59,7 @@ namespace REVIREPanels
         //*****************************************Creacion de trials*****************************************//
         //****************************************************************************************************//
         #region [public Functions] Constructor y gestor del trial
-        public Trial(DataRobot[] dataIn, TrialCondition condition, float time, float ampl, int id)
+        public Trial(DataRobot[] dataIn, TrialConditions condition, float time, float ampl, int id)
         {
             //Copia los datos recibidos
             data = dataIn.ToArray();
@@ -69,11 +71,13 @@ namespace REVIREPanels
             timeIdeal = condition.time;
             speedIdeal = condition.speed; 
             errorIdeal = condition.error; 
-            razonIdeal = condition.razon;
-
+            razonIdeal = condition.razon; 
 
             //Calcular distancia total
-            distanceTotal = CalculateDistanceTotal();           
+            distanceTotal = CalculateDistanceTotal();
+
+            //Calacular porcentaje de acierto de la distancia
+            percDistance = CalculateSuccessDistance(id, ampl);
 
             //Calcular velocidad maxima
             speedMax = CalculateSpeedMax();
@@ -117,7 +121,6 @@ namespace REVIREPanels
 
             //Calcula la distancia ideal total
             distanceTotalIdeal = CalculateDistanceTotalIdeal();
-
         }
         #endregion
         //****************************************************************************************************//
@@ -134,17 +137,66 @@ namespace REVIREPanels
         /// <returns></returns>
         private double CalculateDistanceTotal()
         {
-            double distance = 0.0f;
+            /*double distance = 0.0f;
 
             //Extrae los valores del ejeX y del ejeY, y calcula el incremento
-            for(int i=0; i<data.Length - 1; i++)
+            for(int i=0; i<data.Length - 1; i++)  //Calcula la distancia total realizada
             {
                 double delta =Math.Sqrt(Math.Pow(data[i + 1].Xpr - data[i].Xpr,2) + Math.Pow(data[i + 1].Ypr - data[i].Ypr, 2));
                 distance += delta;                
-            }      
+            }*/
+
+            double distance = data
+                .Zip(data.Skip(1),(a, b) => Math.Sqrt(
+                    Math.Pow(b.Xpr - a.Xpr, 2) +
+                    Math.Pow(b.Ypr - a.Ypr, 2)))
+                .Sum();
             return distance;
         }
 
+
+        /// <summary>
+        /// Calcula la distancia total considerada como acierto, que este cerca de un umbral con repecto al ideal
+        /// para definir que porcentaje de trayectoria esta dentro de la parte blanca del juego. Asi, si no supera
+        /// umbral, no se considera trayectoria buena (por si se ataja).            
+        /// </summary>
+        /// <returns></returns>
+        private double CalculateSuccessDistance(int id, double ampl)
+        {
+            double percentage = 0;
+
+            //Umbral para determinar si esta dentro 
+            double threshold = (ampl / (game_points[1] - game_points[0])) / 2;
+
+
+            if (id !=2 && id!=3) //Calcula distancia para rectas
+            {
+                // Definir segmento utilizado AB a partir de la trayectoria ideal            
+                double[] A = { ideal.First()[0], ideal.First()[1] };
+                double[] B = { ideal.Last()[0], ideal.Last()[1] };
+                
+                // Para cada punto real, comprobamos si alguno de los ideales está dentro del umbral
+                var dentro = data
+                    .Select(pReal => (DistancePointToSegment(A, B, new double[] { pReal.Xpr, pReal.Ypr }) <= threshold) ? 1 : 0).ToList();
+
+                var dentro2 = data
+                    .Select(pReal => DistancePointToSegment(A, B, new double[] { pReal.Xpr, pReal.Ypr })).ToList();
+               
+
+                percentage = (double)dentro.Sum() / (double)dentro.Count * 100;
+            }
+            else //Calcula distancias para circulos
+            {
+                // Para cada punto real, comprobamos si alguno de los ideales está dentro del umbral
+                var dentro = data
+                    .Select(pReal => (DistancePointToCircle(center, ampl/2, new double[] { pReal.Xpr, pReal.Ypr }) <= threshold) ? 1 : 0).ToList();
+
+                percentage = (double)dentro.Sum() / (double)dentro.Count * 100;
+            }
+
+            //Calcular el porcentaje de los puntos que estan dentro
+            return percentage;
+        }
 
         /// <summary>
         /// Calcula la distancia total ideal del trial
@@ -330,6 +382,63 @@ namespace REVIREPanels
             return angle;
         }
         #endregion
+
+        #region [Private Functions] Calculo de distancias entre puntos y segmentos 
+        /// <summary>
+        /// Calcula la distancia minima entre un punto P y un segmento AB utilizando la
+        /// parametrizacion y el clamping
+        /// </summary>
+        /// <returns></returns>
+        private double DistancePointToSegment(double[] A, double[] B, double[] P)
+        {
+            //1.Parametriza el segmento S(t) = A + t(B-A), t E [0,1]
+
+            //Vector AB 
+            double vx_AB = B[0] - A[0];
+            double vy_AB = B[1] - A[1];
+
+            //Vector AP
+            double vx_AP = P[0] - A[0];
+            double vy_AP = P[1] - A[1];
+
+
+            //2. Proyectar P sobre la recta infinita que pasa por A y B usando 
+            //la proyeccion escalar: t* = (AP · AB) / (AB · AB) 
+            double dot = vx_AB * vx_AP + vy_AB * vy_AP; //Producto escalar
+            double len2 = vx_AB * vx_AB + vy_AB * vy_AB; //Longitud
+
+            //Se obtiene el parametro t
+            double tStar = (len2 > 0) ? (dot / len2) : 0.0;
+
+            //3. Clampea t a [0,1] para que la proyeccion caiga dentro del segmento
+            double t = Math.Max(0, Math.Min(1, tStar));
+
+            //4. El punto más cercano en el segmento es Q = A + t(B−A),
+            double qx = A[0] + t * vx_AB;
+            double qy = A[1] + t * vy_AB;
+
+            //5. Calcular la distancia entre el punto P y el Q
+            double dx = P[0] - qx;
+            double dy = P[1] - qy;
+            return Math.Sqrt(dx * dx + dy * dy);
+        }
+
+        /// <summary>
+        /// Calcula la distancia minima entre un punto P y una circuferencia de
+        /// centro R y radio r
+        /// </summary>        
+        /// <returns></returns>
+        private double DistancePointToCircle(double[] C, double r, double[] P)
+        {
+            //1.Calcula la distancia euclidea desde el punto P hasta el centro            
+            double dx = P[0] - C[0];
+            double dy = P[1] - C[1];
+            double dCentro = Math.Sqrt(dx * dx + dy * dy);
+
+            //2. Calcula la distancia a la circunferencia            
+            return Math.Abs(dCentro - r);
+        }
+        #endregion
         //****************************************************************************************************//
         //****************************************************************************************************//
 
@@ -343,10 +452,10 @@ namespace REVIREPanels
         /// de los path clinicos realizados en el juego ClinicalScaleMeter
         /// </summary>
         /// <returns></returns>
-        private List<float[]> GenerateIdealPath(int id, float ampl, int sample)
+        private List<double[]> GenerateIdealPath(int id, float ampl, int sample)
         {
             //Cada camino es diferente, por lo que se generaran a partir de una serie de ecuacion de recta y circulares
-            List<float[]> list = new List<float[]>();
+            List<double[]> list = new List<double[]>();
 
             //El primer camino es una recta. (izquierda a derecha)
             if (id == 0)
@@ -371,38 +480,38 @@ namespace REVIREPanels
             return list;
         }
 
-        private List<float[]> GetArrayRectX(float init, float end, int sample)
+        private List<double[]> GetArrayRectX(float init, float end, int sample)
         {
-            float incr = (end - init) / (sample - 1);
-            float[] x = Enumerable.Range(0, sample).Select(i => init + i * incr).ToArray();
-            float[] y = Enumerable.Repeat(center[1], sample).ToArray();
+            double incr = (end - init) / (sample - 1);
+            double[] x = Enumerable.Range(0, sample).Select(i => init + i * incr).ToArray();
+            double[] y = Enumerable.Repeat(center[1], sample).ToArray();
 
-            List<float[]> tmpList = x.Zip(y, (a, b) => new float[] { a, b }).ToList(); //Se junta y se añade
+            List<double[]> tmpList = x.Zip(y, (a, b) => new double[] { a, b }).ToList(); //Se junta y se añade
             return tmpList;
         }
 
-        private List<float[]> GetArrayRectY(float init, float end, int sample)
+        private List<double[]> GetArrayRectY(float init, float end, int sample)
         {
-            float incr = (end - init) / (sample - 1);
-            float[] x = Enumerable.Repeat(center[0], sample).ToArray();
-            float[] y = Enumerable.Range(0, sample).Select(i => center[1] + (init + i * incr)).ToArray();
+            double incr = (end - init) / (sample - 1);
+            double[] x = Enumerable.Repeat(center[0], sample).ToArray();
+            double[] y = Enumerable.Range(0, sample).Select(i => center[1] + (init + i * incr)).ToArray();
 
-            List<float[]> tmpList = x.Zip(y, (a, b) => new float[] { a, b }).ToList(); //Se junta y se añade
+            List<double[]> tmpList = x.Zip(y, (a, b) => new double[] { a, b }).ToList(); //Se junta y se añade
             return tmpList;
         }
 
         /// <summary>
         /// Genera una trayectoria circular añadiendo angulo inicial y final
         /// </summary>                
-        private List<float[]> GetArrayCircle(float radio, float init, float end, int sample)
+        private List<double[]> GetArrayCircle(float radio, float init, float end, int sample)
         {
-            float incr = ((end - init) / (sample - 1)) * ((float)(Math.PI) / 180.0f);
-            float initAngle = init * (float)Math.PI / 180.0f;
+            double incr = ((end - init) / (sample - 1)) * (Math.PI / 180.0f);
+            double initAngle = init * Math.PI / 180.0f;
 
-            float[] x = Enumerable.Range(0, sample).Select(i => center[0] + radio * (float)Math.Cos(initAngle + i * incr)).ToArray();
-            float[] y = Enumerable.Range(0, sample).Select(i => center[1] + radio * (float)Math.Sin(initAngle + i * incr)).ToArray();
+            double[] x = Enumerable.Range(0, sample).Select(i => center[0] + radio * Math.Cos(initAngle + i * incr)).ToArray();
+            double[] y = Enumerable.Range(0, sample).Select(i => center[1] + radio * Math.Sin(initAngle + i * incr)).ToArray();
 
-            List<float[]> tmpList = x.Zip(y, (a, b) => new float[] { a, b }).ToList(); //Se junta y se añade
+            List<double[]> tmpList = x.Zip(y, (a, b) => new double[] { a, b }).ToList(); //Se junta y se añade
             return tmpList;
         }
         #endregion
@@ -487,7 +596,7 @@ namespace REVIREPanels
 
         public double[] GetDTWIdeal() => t_ideal;
 
-        public List<float[]> GetIdealPath() => ideal;
+        public List<double[]> GetIdealPath() => ideal;
         #endregion
         //****************************************************************************************************//
         //****************************************************************************************************//
@@ -504,26 +613,26 @@ namespace REVIREPanels
         /// <returns></returns>
         public double Score()
         {
-            //Indice de distancia total            
-            double distanceScore = Normalize(distanceTotal, distanceTotalIdeal*2, distanceTotalIdeal,0);            
+            //Indice de distancia total                        
+            double distanceScore = Normalize(distanceTotal, distanceTotalIdeal, distanceTotalIdeal * 2);
 
-            //Indice del tiempo de reaccion            
-            double reactionScore = Normalize(reactionTime, 0, 1.5, 0);
+            //Indice del tiempo de reaccion                        
+            double reactionScore = Normalize(reactionTime, 0, 1.5);
 
-            //Indice del tiempo de trayectoria
-            double timeScore = Normalize(timeTotal, 10, timeIdeal, 0);
+            //Indice del tiempo de trayectoria            
+            double timeScore = Normalize(timeTotal, timeIdeal, 10);
 
-            //Indice de velocidad maxima
-            double speedScore = Normalize(speedMax, 0, speedIdeal, 1);
+            //Indice de velocidad maxima            
+            double speedScore = Normalize(speedMax, speedIdeal, 0);
 
             //Indice de trayectoria completada.
             double completedScore = isCompleted ? 1 : 0;
+            
+            //Indice de error inicial            
+            double errorScore = Normalize(errorInicial, 0, errorIdeal);
 
-            //Indice de error inicial
-            double errorScore = Normalize(errorInicial, 0, errorIdeal, 0);
-
-            //Indice de razon de movimiento inicial
-            double razonScore = Normalize(razonInicial, 0, razonIdeal, 0);
+            //Indice de razon de movimiento inicial            
+            double razonScore = Normalize(razonInicial, 0, razonIdeal);
 
             //Indice del DTW
             double dtwScore = similityDTW;
@@ -540,58 +649,20 @@ namespace REVIREPanels
                 dtwScore      * ponderations[7];  
 
             return clinicalScore;
-        }
+        }       
 
-
-        /// <summary>
-        /// Normaliza las metricas obtenidas y obtiene el porcenjate de aporte de la metrica
-        /// </summary>        
-        private double Normalize(double value, double min, double max, int type)
+        private double Normalize(double value, double max, double min)
         {
-            double score = 0;
-            double result = (value - min) / (max - min);
+            //Conseguir puntuacion a partir de la funcion de primer grado y=a*x+b
+            double a = 1 / (max - min);
+            double b = 1 - a * max;
+            double score = a * value + b;
 
-            //Dependiendo de los maximo y minimos invierte la ponderacion
-            if (max > min)
-            {
-                if (result >= 0 && result <= 1)
-                {
-                    if (type == 0)
-
-                        score = (1 - result);
-
-                    else
-                        score = result;
-
-                }
-                else if (result > 1)
-                {
-                    if (type == 0)
-
-                        score = 0;
-
-                    else
-                        score = 1;
-                }
-                else
-                {
-                    if (type == 0)
-
-                        score = 1;
-
-                    else
-                        score = 0;                    
-                }
-            }
-            else
-            {
-                if (result >= 0 && result <= 1)
-                    score = result;
-                else if (result > 1)
-                    score = 1;
-                else
-                    score = 0;
-            }
+            //Filtra resultados
+            if (score > 1)
+                score = 1;
+            else if(score < 0)
+                score = 0;           
 
             return score;
         }
@@ -618,6 +689,21 @@ namespace REVIREPanels
             error = e;
             razon = r;
         }
+    }
 
+    public struct TrialConditions
+    {
+        public double[] time; //[Valor maxima puntuacion 1; Valor minima puntuacion0] 
+        public double[] speed;
+        public double[] error;
+        public double[] razon;
+
+        public TrialConditions(double[] t, double[] s, double[] e, double[] r)
+        {
+            time = t;
+            speed = s;
+            error = e;
+            razon = r;
+        }
     }
 }

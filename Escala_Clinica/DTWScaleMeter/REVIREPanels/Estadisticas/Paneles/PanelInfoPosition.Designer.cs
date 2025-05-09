@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblpercSuccess = new System.Windows.Forms.Label();
+            this.lblEscala = new System.Windows.Forms.Label();
             this.labele85 = new System.Windows.Forms.Label();
             this.lblCompleted = new System.Windows.Forms.Label();
             this.lblTrial = new System.Windows.Forms.Label();
@@ -57,7 +59,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.chartSpeed = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartData = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lblEscala = new System.Windows.Forms.Label();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -125,6 +126,7 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel15.Controls.Add(this.lblpercSuccess, 4, 5);
             this.tableLayoutPanel15.Controls.Add(this.lblEscala, 4, 17);
             this.tableLayoutPanel15.Controls.Add(this.labele85, 1, 3);
             this.tableLayoutPanel15.Controls.Add(this.lblCompleted, 2, 3);
@@ -172,6 +174,32 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(510, 591);
             this.tableLayoutPanel15.TabIndex = 9;
+            // 
+            // lblpercSuccess
+            // 
+            this.lblpercSuccess.AutoSize = true;
+            this.lblpercSuccess.BackColor = System.Drawing.SystemColors.Info;
+            this.lblpercSuccess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblpercSuccess.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblpercSuccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblpercSuccess.Location = new System.Drawing.Point(410, 139);
+            this.lblpercSuccess.Name = "lblpercSuccess";
+            this.lblpercSuccess.Size = new System.Drawing.Size(70, 47);
+            this.lblpercSuccess.TabIndex = 52;
+            this.lblpercSuccess.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEscala
+            // 
+            this.lblEscala.AutoSize = true;
+            this.lblEscala.BackColor = System.Drawing.SystemColors.Info;
+            this.lblEscala.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEscala.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEscala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblEscala.Location = new System.Drawing.Point(410, 523);
+            this.lblEscala.Name = "lblEscala";
+            this.lblEscala.Size = new System.Drawing.Size(70, 47);
+            this.lblEscala.TabIndex = 51;
+            this.lblEscala.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labele85
             // 
@@ -438,14 +466,14 @@
             this.chartSpeed.BorderlineWidth = 2;
             this.chartSpeed.BorderSkin.PageColor = System.Drawing.Color.Transparent;
             this.chartSpeed.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
-            chartArea1.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
-            chartArea1.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
-            chartArea1.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
-            chartArea1.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.IsSameFontSizeForAllAxes = true;
-            chartArea1.Name = "ChartArea1";
-            this.chartSpeed.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
+            chartArea3.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
+            chartArea3.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
+            chartArea3.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.IsSameFontSizeForAllAxes = true;
+            chartArea3.Name = "ChartArea1";
+            this.chartSpeed.ChartAreas.Add(chartArea3);
             this.chartSpeed.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartSpeed.Location = new System.Drawing.Point(0, 318);
             this.chartSpeed.Margin = new System.Windows.Forms.Padding(0);
@@ -464,14 +492,14 @@
             this.chartData.BorderlineWidth = 2;
             this.chartData.BorderSkin.PageColor = System.Drawing.Color.Transparent;
             this.chartData.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
-            chartArea2.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
-            chartArea2.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
-            chartArea2.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
-            chartArea2.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.IsSameFontSizeForAllAxes = true;
-            chartArea2.Name = "ChartArea1";
-            this.chartData.ChartAreas.Add(chartArea2);
+            chartArea4.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
+            chartArea4.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
+            chartArea4.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.Silver;
+            chartArea4.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
+            chartArea4.BackColor = System.Drawing.Color.Transparent;
+            chartArea4.IsSameFontSizeForAllAxes = true;
+            chartArea4.Name = "ChartArea1";
+            this.chartData.ChartAreas.Add(chartArea4);
             this.chartData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartData.Location = new System.Drawing.Point(0, 0);
             this.chartData.Margin = new System.Windows.Forms.Padding(0);
@@ -480,19 +508,6 @@
             this.chartData.Size = new System.Drawing.Size(971, 306);
             this.chartData.TabIndex = 7;
             this.chartData.AxisScrollBarClicked += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ScrollBarEventArgs>(this.chartData_AxisScrollBarClicked);
-            // 
-            // lblEscala
-            // 
-            this.lblEscala.AutoSize = true;
-            this.lblEscala.BackColor = System.Drawing.SystemColors.Info;
-            this.lblEscala.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblEscala.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEscala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblEscala.Location = new System.Drawing.Point(410, 523);
-            this.lblEscala.Name = "lblEscala";
-            this.lblEscala.Size = new System.Drawing.Size(70, 47);
-            this.lblEscala.TabIndex = 51;
-            this.lblEscala.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PanelInfoPosition
             // 
@@ -544,5 +559,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSpeed;
         private System.Windows.Forms.Label lblEscala;
+        private System.Windows.Forms.Label lblpercSuccess;
     }
 }
